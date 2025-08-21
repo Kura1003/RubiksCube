@@ -7,10 +7,10 @@ namespace Taki.Main.Data.RubiksCube
     internal class RotationAxisManager : IRotationAxisProvider
     {
         private Transform _parentTransform;
-        private Dictionary<Face, RotationAxisInfo> _axisInfoMap;
-        private readonly Dictionary<Face, Vector3> _cachedFaceNormals = new Dictionary<Face, Vector3>();
+        private Dictionary<Face, RotationAxisInfo> _axisInfoMap = new();
+        private readonly Dictionary<Face, Vector3> _cachedFaceNormals = new();
 
-        public RotationAxisManager(
+        internal RotationAxisManager(
             Dictionary<Face, RotationAxisInfo> axisInfoMap,
             Transform parentTransform)
         {

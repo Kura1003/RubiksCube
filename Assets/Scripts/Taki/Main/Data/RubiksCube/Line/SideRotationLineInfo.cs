@@ -9,7 +9,7 @@ namespace Taki.Main.Data.RubiksCube
 
         public bool IsReversed { get; }
 
-        public SideRotationLineInfo(
+        internal SideRotationLineInfo(
             Face lineFace,
             Line lineType,
             bool isReversed)
@@ -19,7 +19,7 @@ namespace Taki.Main.Data.RubiksCube
             IsReversed = isReversed;
         }
 
-        public RotationLineInfo GetLineInfo(
+        internal RotationLineInfo GetLineInfo(
             int layerIndex,
             int size)
         {
