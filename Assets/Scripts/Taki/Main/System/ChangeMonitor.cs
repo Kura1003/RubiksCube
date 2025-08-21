@@ -18,9 +18,13 @@ namespace Taki.Main.System
             Mouse = 1 << 0,
             Camera = 1 << 1
         }
+
         private ChangeFlags _currentChanges = ChangeFlags.None;
 
-        public bool HasBothChanged => _currentChanges.HasFlag(ChangeFlags.Mouse) && _currentChanges.HasFlag(ChangeFlags.Camera);
+        public bool HasBothChanged => 
+            _currentChanges.HasFlag(ChangeFlags.Mouse) 
+            && _currentChanges.HasFlag(ChangeFlags.Camera);
+
         public bool HasEitherChanged => _currentChanges != ChangeFlags.None;
         public bool HasMouseChanged => _currentChanges.HasFlag(ChangeFlags.Mouse);
         public bool HasCameraChanged => _currentChanges.HasFlag(ChangeFlags.Camera);

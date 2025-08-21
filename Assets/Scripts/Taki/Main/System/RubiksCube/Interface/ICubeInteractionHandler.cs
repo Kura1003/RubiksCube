@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Taki.Main.System.RubiksCube
 {
-    public interface ICubeInteractionHandler
+    internal interface ICubeInteractionHandler
     {
         void RegisterEvents();
         void UnregisterEvents();
