@@ -11,7 +11,7 @@ namespace Taki.Audio
     public class AudioManager : Singleton<AudioManager>
     {
         [Serializable]
-        public struct AudioSetting
+        private struct AudioSetting
         {
             public AudioClip Clip;
             public AnnulusGames.LucidTools.Audio.AudioType Type;

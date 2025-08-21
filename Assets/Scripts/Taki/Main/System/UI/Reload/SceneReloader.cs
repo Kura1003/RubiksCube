@@ -1,4 +1,3 @@
-using AnnulusGames.LucidTools.Audio;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
@@ -16,7 +15,7 @@ namespace Taki.Main.System
         private AsyncOperation _reloadAsync;
 
         [Inject]
-        public SceneReloader(IScreenFader screenFader)
+        internal SceneReloader(IScreenFader screenFader)
         {
             _screenFader = screenFader;
             _sceneName = SceneManager.GetActiveScene().name;

@@ -5,11 +5,11 @@ namespace Taki.Main.Data.RubiksCube
 {
     internal readonly struct FaceSpawnInfo
     {
-        public GridPlane Plane { get; }
-        public Vector3 Normal { get; }
-        public Vector3 RotationOffset { get; }
+        internal GridPlane Plane { get; }
+        internal Vector3 Normal { get; }
+        internal Vector3 RotationOffset { get; }
 
-        public FaceSpawnInfo(
+        internal FaceSpawnInfo(
             GridPlane plane,
             Vector3 normal,
             Vector3 rotationOffset)

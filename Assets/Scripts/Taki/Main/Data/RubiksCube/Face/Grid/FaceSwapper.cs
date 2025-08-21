@@ -18,7 +18,7 @@ namespace Taki.Main.Data.RubiksCube
             _cachedSize = cubeSize;
         }
 
-        public void SwapPositions(RotationLineInfo lineInfo, Transform[] otherTransforms)
+        internal void SwapPositions(RotationLineInfo lineInfo, Transform[] otherTransforms)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -27,7 +27,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void ReplacePieces(RotationLineInfo lineInfo, PieceInfo[] otherPieces)
+        internal void ReplacePieces(RotationLineInfo lineInfo, PieceInfo[] otherPieces)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -36,7 +36,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void ReplaceAll(PieceInfo[,] otherPieces)
+        internal void ReplaceAll(PieceInfo[,] otherPieces)
         {
             for (int row = 0; row < _cachedSize; row++)
             {
@@ -47,7 +47,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void Rotate(bool isClockwise)
+        internal void Rotate(bool isClockwise)
         {
             var tempMatrix = new PieceInfo[_cachedSize, _cachedSize];
 
@@ -76,7 +76,7 @@ namespace Taki.Main.Data.RubiksCube
             ReplaceAll(tempMatrix);
         }
 
-        public PieceInfo[] GetLinePieces(RotationLineInfo lineInfo)
+        internal PieceInfo[] GetLinePieces(RotationLineInfo lineInfo)
         {
             var linePieces = new PieceInfo[_cachedSize];
             for (int i = 0; i < _cachedSize; i++)

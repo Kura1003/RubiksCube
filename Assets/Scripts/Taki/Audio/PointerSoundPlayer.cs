@@ -10,7 +10,7 @@ namespace Taki.Audio
 {
     public sealed class PointerSoundPlayer : PointerEventHandler
     {
-        public enum PointerEventType
+        private enum PointerEventType
         {
             Enter,
             Exit,

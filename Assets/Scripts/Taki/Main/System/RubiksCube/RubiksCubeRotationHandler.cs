@@ -53,7 +53,7 @@ namespace Taki.Main.System.RubiksCube
         private CompositeDisposable _disposables = new();
 
         [Inject]
-        public RubiksCubeRotationHandler(
+        internal RubiksCubeRotationHandler(
             CubeSettings settings,
             ICubeRotationLogic cubeRotationLogic,
             ICubeTransformManipulator transformManipulator,

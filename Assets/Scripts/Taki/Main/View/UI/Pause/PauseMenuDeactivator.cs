@@ -27,7 +27,7 @@ namespace Taki.Main.View
         private Camera _mainCamera;
         private Vector3 _initialCameraLocalPosition;
 
-        public void Awake()
+        private void Awake()
         {
             _mainCamera = Camera.main;
             _initialCameraLocalPosition = _mainCamera.transform.localPosition;

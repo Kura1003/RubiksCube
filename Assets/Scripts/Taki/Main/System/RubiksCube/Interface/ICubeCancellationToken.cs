@@ -2,7 +2,7 @@ using System.Threading;
 
 namespace Taki.Main.System.RubiksCube
 {
-    public interface ICubeCancellationToken
+    internal interface ICubeCancellationToken
     {
         CancellationToken GetToken();
         void CancelAndDispose();

@@ -15,7 +15,7 @@ namespace Taki.Main.View
         private bool _isDrawing = true;
         private Tween _fadeTween;
 
-        public GUITextureFader(Texture2D texture, Rect position)
+        internal GUITextureFader(Texture2D texture, Rect position)
         {
             _isDrawing = true;
             _texture = texture;
@@ -23,22 +23,22 @@ namespace Taki.Main.View
             _currentColor = new Color(1f, 1f, 1f, 0f);
         }
 
-        public void SetTextureColor(Color color)
+        internal void SetTextureColor(Color color)
         {
             _currentColor = color;
         }
 
-        public void SetFadeDuration(float duration)
+        internal void SetFadeDuration(float duration)
         {
             _fadeDuration = Mathf.Max(0.01f, duration);
         }
 
-        public void SetFadeInTargetAlpha(float alpha)
+        internal void SetFadeInTargetAlpha(float alpha)
         {
             _fadeInTargetAlpha = Mathf.Clamp01(alpha);
         }
 
-        public async UniTask FadeIn(CancellationToken token, bool keepDrawingAfterFade = false)
+        internal async UniTask FadeIn(CancellationToken token, bool keepDrawingAfterFade = false)
         {
             _fadeTween?.Kill();
             _isDrawing = true;
@@ -55,7 +55,7 @@ namespace Taki.Main.View
             }
         }
 
-        public async UniTask FadeOut(CancellationToken token)
+        internal async UniTask FadeOut(CancellationToken token)
         {
             _fadeTween?.Kill();
             _isDrawing = true;
@@ -69,12 +69,12 @@ namespace Taki.Main.View
             _isDrawing = false;
         }
 
-        public void SetAlphaToZero()
+        internal void SetAlphaToZero()
         {
             _currentColor.a = 0;
         }
 
-        public void Draw()
+        internal void Draw()
         {
             if (!_isDrawing)
             {

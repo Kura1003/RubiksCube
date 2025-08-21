@@ -15,6 +15,7 @@ namespace Taki.Main.View.RubiksCube
 
         private Vector3 _originalScale;
         private Tween _currentTween;
+        private ChangeMonitor _changeMonitor;
 
         [Flags]
         private enum TaskState
@@ -27,17 +28,21 @@ namespace Taki.Main.View.RubiksCube
 
         private TaskState _currentTaskState = TaskState.None;
 
+        private bool ShouldUpdate =>
+            !_currentTaskState.HasFlag(TaskState.Paused)
+            || _changeMonitor.HasEitherChanged;
+
         protected override void Awake()
         {
             base.Awake();
 
             _originalScale = transform.localScale;
+            _changeMonitor = ChangeMonitor.Instance;
         }
 
         private void Update()
         {
-            if (!_currentTaskState.HasFlag(TaskState.Paused) 
-                || !ChangeMonitor.Instance.HasEitherChanged)
+            if (!ShouldUpdate)
             {
                 return;
             }
@@ -81,8 +86,8 @@ namespace Taki.Main.View.RubiksCube
             _currentTween?.Kill();
 
             _currentTween = transform.DOScale(
-                    _originalScale * _scaleMultiplier,
-                    _animationDuration)
+                _originalScale * _scaleMultiplier,
+                _animationDuration)
                 .SetEase(_easeType)
                 .SetUpdate(_ignoreTimeScale)
                 .OnComplete(() =>
@@ -107,8 +112,8 @@ namespace Taki.Main.View.RubiksCube
             _currentTween?.Kill();
 
             _currentTween = transform.DOScale(
-                    _originalScale,
-                    _animationDuration)
+                _originalScale,
+                _animationDuration)
                 .SetEase(_easeType)
                 .SetUpdate(_ignoreTimeScale)
                 .OnComplete(() =>

@@ -7,7 +7,7 @@ namespace Taki.Main.Data.RubiksCube
         public Transform Transform { get; }
         public string Id { get; }
 
-        public PieceInfo(Transform transform, string id)
+        internal PieceInfo(Transform transform, string id)
         {
             Transform = transform;
             Id = id;

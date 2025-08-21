@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Taki.Main.System.RubiksCube
 {
-    public interface ICubeFactory
+    internal interface ICubeFactory
     {
         Observable<Unit> OnCubeCreated { get; }
         Observable<Unit> OnCubeDestroyed { get; }

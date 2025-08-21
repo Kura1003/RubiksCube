@@ -29,7 +29,7 @@ namespace Taki.Main.View
             Initialize();
         }
 
-        public void Initialize()
+        private void Initialize()
         {
             _circleTextRotator.Initialize();
 
