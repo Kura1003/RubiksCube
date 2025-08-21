@@ -5,7 +5,7 @@
 叛逆明朝<br>
 https://www.fontspace.com/hangyaku-font-f31195
 
-フリーフォント<br>
+fontopo<br>
 https://fontopo.com/
 
 いらすとや<br>
