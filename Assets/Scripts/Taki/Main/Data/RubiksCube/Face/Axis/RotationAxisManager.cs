@@ -36,26 +36,11 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public Vector3 GetFaceNormal(Face face)
-        {
-            Thrower.IfTrue(
-                !_cachedFaceNormals.ContainsKey(face),
-                $"指定された面 '{face}' の法線はキャッシュされていません。" +
-                $"SetUPメソッドが呼び出されているか確認してください。");
-
-            return _cachedFaceNormals[face];
-        }
+        public Vector3 GetFaceNormal(Face face) => _cachedFaceNormals[face];
 
         public Transform GetRotationAxis(Face face, int layerIndex)
         {
-            Thrower.IfTrue(
-                !_axisInfoMap.ContainsKey(face),
-                $"指定された面 '{face}' は軸情報マップに定義されていません。");
-
             var axes = _axisInfoMap[face].RotationAxes;
-
-            Thrower.IfOutOfRange(layerIndex, axes.Count);
-
             return axes[layerIndex];
         }
 

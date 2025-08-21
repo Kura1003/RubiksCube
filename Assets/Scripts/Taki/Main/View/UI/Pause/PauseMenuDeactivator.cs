@@ -10,16 +10,14 @@ using Taki.Audio;
 
 namespace Taki.Main.View
 {
-    public sealed class PauseMenuDeactivator : MonoBehaviour
+    public sealed class PauseMenuDeactivator : MonoBehaviour, IPauseMenuDeactivator
     {
         [SerializeField] private DualCanvasGroupFader _dualCanvasGroupFader;
         [SerializeField] private UICircleAnimator _circleAnimator;
         [SerializeField] private CameraShaker _cameraShaker;
-
         [SerializeField] private List<TextTyper> _textTypers;
 
         [Inject] private readonly CircleTextRotator _circleTextRotator;
-
         [Inject] private readonly ICubeSizeManager _cubeSizeManager;
         [Inject] private readonly ICubeInteractionHandler _cubeInteractionHandler;
         [Inject] private readonly IPauseEvents _pauseEvents;
@@ -27,16 +25,18 @@ namespace Taki.Main.View
         private Camera _mainCamera;
         private Vector3 _initialCameraLocalPosition;
 
-        private void Awake()
+        public void Initialize()
         {
             _mainCamera = Camera.main;
             _initialCameraLocalPosition = _mainCamera.transform.localPosition;
 
             _pauseEvents.OnResumeRequested
                 .Subscribe(_ =>
-                OnResumeRequested(destroyCancellationToken)
-                .SuppressCancellationThrow()
-                .Forget())
+                {
+                    OnResumeRequested(destroyCancellationToken)
+                        .SuppressCancellationThrow()
+                        .Forget();
+                })
                 .AddTo(this);
         }
 

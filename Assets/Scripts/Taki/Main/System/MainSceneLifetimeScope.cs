@@ -22,6 +22,9 @@ namespace Taki.Main.System
 
         [SerializeField] private GUIScreenFader _guiScreenFader;
 
+        [SerializeField] private PauseMenuActivator _pauseMenuActivator;
+        [SerializeField] private PauseMenuDeactivator _pauseMenuDeactivator;
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(_circleTextRotator);
@@ -59,6 +62,9 @@ namespace Taki.Main.System
 
             builder.Register<SceneReloader>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<PauseService>(Lifetime.Singleton).AsImplementedInterfaces();
+
+            builder.RegisterComponent(_pauseMenuActivator).AsImplementedInterfaces();
+            builder.RegisterComponent(_pauseMenuDeactivator).AsImplementedInterfaces();
 
             builder.RegisterEntryPoint<MainSceneEntrypoint>(Lifetime.Singleton);
         }

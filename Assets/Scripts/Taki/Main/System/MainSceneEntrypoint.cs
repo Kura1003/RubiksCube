@@ -20,6 +20,8 @@ namespace Taki.Main.System
         private readonly ICubeInteractionHandler _cubeInteractionHandler;
         private readonly IScreenFader _screenFader;
         private readonly ISceneReloader _sceneReloader;
+        private readonly IPauseMenuActivator _pauseMenuActivator;
+        private readonly IPauseMenuDeactivator _pauseMenuDeactivator;
 
         private readonly ButtonEntrypoint _buttonEntrypoint;
         private readonly UserInputLockEntrypoint _lockEntrypoint;
@@ -29,6 +31,8 @@ namespace Taki.Main.System
             ICubeInteractionHandler cubeInteractionHandler,
             IScreenFader screenFader,
             ISceneReloader sceneReloader,
+            IPauseMenuActivator pauseMenuActivator,
+            IPauseMenuDeactivator pauseMenuDeactivator,
             ButtonEntrypoint buttonEntrypoint,
             UserInputLockEntrypoint lockEntrypoint)
         {
@@ -37,6 +41,8 @@ namespace Taki.Main.System
             _cubeInteractionHandler = cubeInteractionHandler;
             _screenFader = screenFader;
             _sceneReloader = sceneReloader;
+            _pauseMenuActivator = pauseMenuActivator;
+            _pauseMenuDeactivator = pauseMenuDeactivator;
 
             _buttonEntrypoint = buttonEntrypoint;
             _lockEntrypoint = lockEntrypoint;
@@ -91,10 +97,6 @@ namespace Taki.Main.System
 
         private async void OnFadeOutComplete()
         {
-            _buttonEntrypoint.InitializeHandlers();
-            _lockEntrypoint.SetUserInputLockByTag(UserInputLockTag.Normal, false);
-            _cubeInteractionHandler.RegisterEvents();
-
             await UniTask.WaitForSeconds(
                 1.0f,
                 cancellationToken: _destroyCancellationToken,
@@ -110,6 +112,12 @@ namespace Taki.Main.System
                 .SetLoop(true)
                 .SetVolume(0f)
                 .FadeVolume(1f, 0.5f);
+
+            _pauseMenuActivator.Initialize();
+            _pauseMenuDeactivator.Initialize();
+            _buttonEntrypoint.InitializeHandlers();
+            _lockEntrypoint.SetUserInputLockByTag(UserInputLockTag.Normal, false);
+            _cubeInteractionHandler.RegisterEvents();
         }
     }
 }

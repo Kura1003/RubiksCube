@@ -1461,7 +1461,6 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 1561630354}
   - {fileID: 292057980}
-  - {fileID: 1213811869}
   _circleTextRotator: {fileID: 456752994}
   _cubePivot: {fileID: 1288374408}
   _cubeSettings: {fileID: 11400000, guid: b96682905dea56848a10d3c065a5ca6c, type: 2}
@@ -1470,6 +1469,8 @@ MonoBehaviour:
   _buttonEntrypoint: {fileID: 1745642927}
   _lockEntrypoint: {fileID: 381793469}
   _guiScreenFader: {fileID: 570132168}
+  _pauseMenuActivator: {fileID: 1763228586}
+  _pauseMenuDeactivator: {fileID: 512329705}
 --- !u!114 &381793469
 MonoBehaviour:
   m_ObjectHideFlags: 0
