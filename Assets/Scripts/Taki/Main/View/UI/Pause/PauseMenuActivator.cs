@@ -10,17 +10,15 @@ using Taki.Audio;
 
 namespace Taki.Main.View
 {
-    public sealed class PauseMenuActivator : MonoBehaviour
+    public sealed class PauseMenuActivator : MonoBehaviour, IPauseMenuActivator
     {
         [SerializeField] private DualCanvasGroupFader _dualCanvasGroupFader;
-
         [SerializeField] private List<TextTyper> _textTypers;
 
         [Inject] private readonly CircleTextRotator _circleTextRotator;
-
         [Inject] private readonly IPauseEvents _pauseEvents;
 
-        private void Awake()
+        public void Initialize()
         {
             _pauseEvents.OnPauseRequested
                 .Subscribe(_ =>
