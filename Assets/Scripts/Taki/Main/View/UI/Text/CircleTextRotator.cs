@@ -29,7 +29,7 @@ namespace Taki.Main.View
         [SerializeField] private Ease _snapEase = Ease.OutQuad;
         [SerializeField] private bool _ignoreTimeScale = false;
 
-        public readonly int CenterIndex = 3;
+        public int CenterIndex { get; } = 3;
 
         public TextRotatorObject GetRotatorObject(int index) => _rotatorObjects[index];
 

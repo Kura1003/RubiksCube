@@ -2,7 +2,7 @@ using R3;
 
 namespace Taki.Utility
 {
-    public interface IPointerEvents
+    internal interface IPointerEvents
     {
         ReactiveCommand<Unit> OnClicked { get; }
         ReactiveCommand<Unit> OnPointerEntered { get; }

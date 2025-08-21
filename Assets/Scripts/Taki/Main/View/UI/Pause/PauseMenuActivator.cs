@@ -20,7 +20,7 @@ namespace Taki.Main.View
 
         [Inject] private readonly IPauseEvents _pauseEvents;
 
-        public void Awake()
+        private void Awake()
         {
             _pauseEvents.OnPauseRequested
                 .Subscribe(_ =>

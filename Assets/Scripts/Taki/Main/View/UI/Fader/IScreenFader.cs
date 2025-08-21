@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Taki.Main.View
 {
-    public interface IScreenFader
+    internal interface IScreenFader
     {
         void Initialize(Texture2D texture, Rect positionRect);
         void SetTextureColor(Color color);
