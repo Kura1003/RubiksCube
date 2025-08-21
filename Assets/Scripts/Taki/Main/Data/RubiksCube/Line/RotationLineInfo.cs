@@ -10,7 +10,7 @@ namespace Taki.Main.Data.RubiksCube
 
         private readonly int _fixedIndex;
 
-        public RotationLineInfo(
+        internal RotationLineInfo(
             Face face, 
             Line lineType, 
             int fixedIndex)
@@ -20,7 +20,7 @@ namespace Taki.Main.Data.RubiksCube
             _fixedIndex = fixedIndex;
         }
 
-        public Vector2Int GetIndex(int lineIndex)
+        internal Vector2Int GetIndex(int lineIndex)
         {
             if (IsRow())
             {
