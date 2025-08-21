@@ -18,7 +18,7 @@ namespace Taki.Main.Data.RubiksCube
             _cachedSize = cubeSize;
         }
 
-        public void ParentLine(RotationLineInfo lineInfo, Transform parent)
+        internal void ParentLine(RotationLineInfo lineInfo, Transform parent)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -27,7 +27,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void UnparentAll(Transform parent)
+        internal void UnparentAll(Transform parent)
         {
             for (int x = 0; x < _cachedSize; x++)
             {
@@ -38,7 +38,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RotateLine(
+        internal void RotateLine(
             RotationLineInfo lineInfo,
             float angle,
             Vector3 worldAxis)
@@ -50,7 +50,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RotateAll(float angle, Vector3 localAxis)
+        internal void RotateAll(float angle, Vector3 localAxis)
         {
             for (int x = 0; x < _cachedSize; x++)
             {

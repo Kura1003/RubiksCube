@@ -38,7 +38,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void SavePositions(RotationLineInfo lineInfo)
+        internal void SavePositions(RotationLineInfo lineInfo)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -48,7 +48,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void SaveRotations(RotationLineInfo lineInfo)
+        internal void SaveRotations(RotationLineInfo lineInfo)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -58,7 +58,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void SaveAllPositions()
+        internal void SaveAllPositions()
         {
             for (int x = 0; x < _cachedSize; x++)
             {
@@ -69,7 +69,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void SaveAllRotations()
+        internal void SaveAllRotations()
         {
             for (int x = 0; x < _cachedSize; x++)
             {
@@ -80,7 +80,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RestorePositions(RotationLineInfo lineInfo)
+        internal void RestorePositions(RotationLineInfo lineInfo)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -90,7 +90,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RestoreRotations(RotationLineInfo lineInfo)
+        internal void RestoreRotations(RotationLineInfo lineInfo)
         {
             for (int i = 0; i < _cachedSize; i++)
             {
@@ -100,7 +100,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RestoreAllPositions()
+        internal void RestoreAllPositions()
         {
             for (int x = 0; x < _cachedSize; x++)
             {
@@ -111,7 +111,7 @@ namespace Taki.Main.Data.RubiksCube
             }
         }
 
-        public void RestoreAllRotations()
+        internal void RestoreAllRotations()
         {
             for (int x = 0; x < _cachedSize; x++)
             {

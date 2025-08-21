@@ -11,7 +11,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class FrontFaceSpawnData : FaceSpawnDataBase
     {
-        public FrontFaceSpawnData()
+        internal FrontFaceSpawnData()
         {
             Face = Face.Front;
             SpawnInfo = new FaceSpawnInfo(
@@ -23,7 +23,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class BackFaceSpawnData : FaceSpawnDataBase
     {
-        public BackFaceSpawnData()
+        internal BackFaceSpawnData()
         {
             Face = Face.Back;
             SpawnInfo = new FaceSpawnInfo(
@@ -35,7 +35,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class LeftFaceSpawnData : FaceSpawnDataBase
     {
-        public LeftFaceSpawnData()
+        internal LeftFaceSpawnData()
         {
             Face = Face.Left;
             SpawnInfo = new FaceSpawnInfo(
@@ -47,7 +47,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class RightFaceSpawnData : FaceSpawnDataBase
     {
-        public RightFaceSpawnData()
+        internal RightFaceSpawnData()
         {
             Face = Face.Right;
             SpawnInfo = new FaceSpawnInfo(
@@ -59,7 +59,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class TopFaceSpawnData : FaceSpawnDataBase
     {
-        public TopFaceSpawnData()
+        internal TopFaceSpawnData()
         {
             Face = Face.Top;
             SpawnInfo = new FaceSpawnInfo(
@@ -71,7 +71,7 @@ namespace Taki.Main.Data.RubiksCube
 
     internal sealed class BottomFaceSpawnData : FaceSpawnDataBase
     {
-        public BottomFaceSpawnData()
+        internal BottomFaceSpawnData()
         {
             Face = Face.Bottom;
             SpawnInfo = new FaceSpawnInfo(
