@@ -27,7 +27,9 @@ https://sozaino.site/
 https://soundeffect-lab.info/sound/battle/
 
 フリー効果音素材 くらげ工匠
+
 http://www.kurage-kosho.info/
 
 OtoLogic
+
 https://otologic.jp/free/license.html
