@@ -73,7 +73,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 !IsSingleFlag(self),
-                $"IsContainedInメソッドは、単一のFaceフラグにのみ使用できます。");
+                $"IsContainedInメソッドは単一のFaceフラグにのみ使用できます。");
 
             return other.HasFlag(self);
         }

@@ -26,7 +26,7 @@ namespace Taki.Main.Data.RubiksCube
             return _allFaces[randomIndex];
         }
 
-        internal static Face[] GetFaces(Face faces)
+        internal static List<Face> GetFaces(Face faces)
         {
             var list = new List<Face>();
             foreach (Face face in _allFaces)
@@ -36,7 +36,7 @@ namespace Taki.Main.Data.RubiksCube
                     list.Add(face);
                 }
             }
-            return list.ToArray();
+            return list;
         }
     }
 }
