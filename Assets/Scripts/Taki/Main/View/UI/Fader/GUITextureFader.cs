@@ -8,7 +8,7 @@ namespace Taki.Main.View
     internal class GUITextureFader
     {
         private readonly Texture2D _texture;
-        private readonly Rect _positionRect;
+        private Rect _positionRect;
         private Color _currentColor;
         private float _fadeDuration = 1.0f;
         private float _fadeInTargetAlpha = 1.0f;
@@ -81,6 +81,7 @@ namespace Taki.Main.View
                 return;
             }
 
+            _positionRect = new Rect(0, 0, Screen.width, Screen.height);
             Color originalGuiColor = GUI.color;
             GUI.color = _currentColor;
             GUI.DrawTexture(_positionRect, _texture);
