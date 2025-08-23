@@ -1,4 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Taki.Utility.Core
 {
@@ -7,8 +10,8 @@ namespace Taki.Utility.Core
         internal static void Exit()
         {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
+            EditorApplication.isPlaying = false;
+#elif !UNITY_WEBGL 
             Application.Quit();
 #endif
         }
@@ -16,9 +19,6 @@ namespace Taki.Utility.Core
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
-            const int screenWidth = 1248;
-            const int screenHeight = 702;
-            const bool isFullScreen = false;
             const int targetFrameRate = 120;
             const bool runInBackground = true;
             const bool logEnabled = false;
@@ -31,8 +31,6 @@ namespace Taki.Utility.Core
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = targetFrameRate;
             Application.runInBackground = runInBackground;
-
-            Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         }
     }
 }

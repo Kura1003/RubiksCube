@@ -12,13 +12,14 @@ namespace Taki.Main.View
         [SerializeField] private TMP_Text _targetText;
         [SerializeField] private float _characterInterval = 0.05f;
         [SerializeField] private bool _ignoreTimeScale = false;
+        [SerializeField] private bool _playAudio = true;
         [SerializeField, TextArea(1, 3)]
         private string _textToType;
 
         private StringBuilder _stringBuilder = new StringBuilder();
         private string _fullTextCache;
 
-        private const string _warmUpCharacters = 
+        private const string _warmUpCharacters =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
         private void Awake()
@@ -46,8 +47,8 @@ namespace Taki.Main.View
         }
 
         public async UniTask Type(
-            string overrideText = null, 
-            float? interval = null, 
+            string overrideText = null,
+            float? interval = null,
             CancellationToken cancellationToken = default)
         {
             string text = overrideText ?? _textToType;
@@ -65,18 +66,21 @@ namespace Taki.Main.View
                 _targetText.maxVisibleCharacters = i + 1;
                 await UniTask
                     .WaitForSeconds(
-                    delay, 
-                    _ignoreTimeScale, 
+                    delay,
+                    _ignoreTimeScale,
                     cancellationToken: cancellationToken);
 
-                AudioManager.Instance.Play("TextType", gameObject).SetVolume(1f);
+                if (_playAudio)
+                {
+                    AudioManager.Instance.Play("TextType", gameObject).SetVolume(1f);
+                }
 
                 if (cancellationToken.IsCancellationRequested) return;
             }
         }
 
         public async UniTask Clear(
-            float? interval = null, 
+            float? interval = null,
             CancellationToken cancellationToken = default)
         {
             float delay = interval ?? _characterInterval;
@@ -88,11 +92,14 @@ namespace Taki.Main.View
                 _targetText.maxVisibleCharacters = --currentVisibleCharacters;
                 await UniTask
                     .WaitForSeconds(
-                    delay, 
-                    _ignoreTimeScale, 
+                    delay,
+                    _ignoreTimeScale,
                     cancellationToken: cancellationToken);
 
-                AudioManager.Instance.Play("TextType", gameObject).SetVolume(1f);
+                if (_playAudio)
+                {
+                    AudioManager.Instance.Play("TextType", gameObject).SetVolume(1f);
+                }
 
                 if (cancellationToken.IsCancellationRequested) return;
             }
