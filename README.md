@@ -25,3 +25,6 @@ http://www.kurage-kosho.info/
 
 OtoLogic<br>
 https://otologic.jp/free/license.html
+
+unityroom<br>
+https://unityroom.com/games/rubikscube
