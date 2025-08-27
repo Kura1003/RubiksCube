@@ -1,6 +1,6 @@
 ﻿using Taki.Main.System;
 using Taki.Main.View;
-using Taki.StartMenu.UI;
+using Taki.StartMenu.View;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

@@ -305,6 +305,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 802889502}
+  _startMenuBackground: {fileID: 1655681387}
   _guiScreenFader: {fileID: 570132168}
   _titleTextTyper: {fileID: 462725181}
 --- !u!1 &462725179
@@ -1018,7 +1019,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655681385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1e8fba05013b847a1ad4078bffcb8f, type: 3}
+  m_Script: {fileID: 11500000, guid: d452b278014af6b4dbc3c9058732767e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
@@ -1034,7 +1035,7 @@ MonoBehaviour:
   _spacing: 600
   _plane: 0
   _enableScroll: 1
-  _speed: 100
+  _speed: 500
 --- !u!4 &3765305397579090887
 Transform:
   m_ObjectHideFlags: 0

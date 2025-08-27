@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
-using Taki.StartMenu.UI;
+using Taki.StartMenu.View;
 using Taki.Utility.Core;
 using UnityEngine;
 using VContainer.Unity;
