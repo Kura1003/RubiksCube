@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
 using UnityEngine;
@@ -23,7 +23,7 @@ namespace Taki.Main.System
 
         public void PreloadScene()
         {
-            if (_reloadAsync == null)
+            if (_reloadAsync is null)
             {
                 _reloadAsync = SceneManager.LoadSceneAsync(_sceneName);
                 _reloadAsync.allowSceneActivation = false;
@@ -32,7 +32,7 @@ namespace Taki.Main.System
 
         public async UniTask ReloadScene(CancellationToken token)
         {
-            if (_reloadAsync == null) return;
+            if (_reloadAsync is null) return;
 
             _screenFader.SetFadeDuration(0.5f);
             _screenFader.SetFadeInTargetAlpha(1f);

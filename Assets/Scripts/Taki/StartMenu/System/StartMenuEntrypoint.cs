@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
 using Taki.Utility.Core;
@@ -32,7 +32,7 @@ namespace Taki.StartMenu.System
 
         public async void Initialize()
         {
-            await UniTask.Yield();
+            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
             var isCancelled = await _screenFader
                 .FadeOut(
                 _destroyCancellationToken)

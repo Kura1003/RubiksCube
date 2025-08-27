@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Diagnostics;
 
 namespace Taki.Utility.Core
@@ -15,7 +15,7 @@ namespace Taki.Utility.Core
             private readonly Stopwatch _stopwatch;
             private readonly string _message;
 
-            public PerformanceTimer(string message)
+            internal PerformanceTimer(string message)
             {
                 _message = message;
                 _stopwatch = Stopwatch.StartNew();
@@ -24,7 +24,9 @@ namespace Taki.Utility.Core
             public void Dispose()
             {
                 _stopwatch.Stop();
-                Console.WriteLine($"{_message} ‚ÌÀsŠÔ: {_stopwatch.ElapsedMilliseconds} ms");
+                UnityEngine.Debug.Log(
+                    $"{_message} ã®å®Ÿè¡Œæ™‚é–“: " +
+                    $"{_stopwatch.ElapsedMilliseconds} ms");
             }
         }
     }

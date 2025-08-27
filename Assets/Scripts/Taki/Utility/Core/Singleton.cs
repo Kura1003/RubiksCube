@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Taki.Utility.Core
 {
@@ -24,8 +24,8 @@ namespace Taki.Utility.Core
                     else
                     {
                         Debug.Log(
-                            $"ƒV[ƒ““à‚ÅA" +
-                            $"{typeof(T).Name}‚ÌƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B");
+                            $"ã‚·ãƒ¼ãƒ³å†…ã§ã€" +
+                            $"{typeof(T).Name}ã®ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚");
                         return null;
                     }
                 }

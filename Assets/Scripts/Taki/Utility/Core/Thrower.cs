@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 namespace Taki.Utility.Core
@@ -15,11 +15,11 @@ namespace Taki.Utility.Core
 
         internal static void IfNull<T>(T data, string paramName) where T : class
         {
-            if (data == null)
+            if (data is null)
             {
                 throw new ArgumentNullException(
                     paramName, 
-                    $"ƒpƒ‰ƒ[ƒ^[‚ªnull‚Å‚·B");
+                    $"ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ãŒnullã§ã™ã€‚");
             }
         }
 
@@ -37,7 +37,7 @@ namespace Taki.Utility.Core
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(index), 
-                    $"ƒCƒ“ƒfƒbƒNƒX‚Í 0 ‚©‚ç {length - 1} ‚Ì”ÍˆÍ“à‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B");
+                    $"ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¯ 0 ã‹ã‚‰ {length - 1} ã®ç¯„å›²å†…ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚");
             }
         }
 
@@ -46,8 +46,8 @@ namespace Taki.Utility.Core
             if (index.x < 0 || index.x >= size.x || index.y < 0 || index.y >= size.y)
             {
                 throw new ArgumentOutOfRangeException(
-                    $"x‚Í 0 ‚©‚ç {size.x - 1}A" +
-                    $"y‚Í 0 ‚©‚ç {size.y - 1} ‚Ì”ÍˆÍ“à‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B");
+                    $"xã¯ 0 ã‹ã‚‰ {size.x - 1}ã€" +
+                    $"yã¯ 0 ã‹ã‚‰ {size.y - 1} ã®ç¯„å›²å†…ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚");
             }
         }
 
@@ -56,9 +56,9 @@ namespace Taki.Utility.Core
             if (index.x < 0 || index.x >= size.x || index.y < 0 || index.y >= size.y || index.z < 0 || index.z >= size.z)
             {
                 throw new ArgumentOutOfRangeException(
-                    $"x‚Í 0 ‚©‚ç {size.x - 1}A" +
-                    $"y‚Í 0 ‚©‚ç {size.y - 1}A" +
-                    $"z‚Í 0 ‚©‚ç {size.z - 1} ‚Ì”ÍˆÍ“à‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B");
+                    $"xã¯ 0 ã‹ã‚‰ {size.x - 1}ã€" +
+                    $"yã¯ 0 ã‹ã‚‰ {size.y - 1}ã€" +
+                    $"zã¯ 0 ã‹ã‚‰ {size.z - 1} ã®ç¯„å›²å†…ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚");
             }
         }
 
@@ -68,7 +68,7 @@ namespace Taki.Utility.Core
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(value), 
-                    $"’l‚Í {min} ‚©‚ç {max} ‚Ì”ÍˆÍ“à‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B");
+                    $"å€¤ã¯ {min} ã‹ã‚‰ {max} ã®ç¯„å›²å†…ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚");
             }
         }
     }

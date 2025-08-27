@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace Taki.Main.View
@@ -52,10 +52,7 @@ namespace Taki.Main.View
                 .OnKill(() =>
                 {
                     _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-                    if (_cameraTransform != null)
-                    {
-                        _cameraTransform.localPosition = _originalPosition;
-                    }
+                    _cameraTransform.localPosition = _originalPosition;
                 });
         }
 

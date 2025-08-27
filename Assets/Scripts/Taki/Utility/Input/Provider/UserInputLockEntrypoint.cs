@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Taki.Utility.Core;
@@ -57,7 +57,9 @@ namespace Taki.Utility
             }
             else
             {
-                Debug.LogWarning($"UserInputLockTag '{tag}' ‚É‘Î‰‚·‚é“ü—ÍƒƒbƒN‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B");
+                Debug.LogWarning(
+                    $"UserInputLockTag '{tag}' ã«ã€" +
+                    $"å¯¾å¿œã™ã‚‹å…¥åŠ›ãƒ­ãƒƒã‚¯ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚");
             }
         }
     }

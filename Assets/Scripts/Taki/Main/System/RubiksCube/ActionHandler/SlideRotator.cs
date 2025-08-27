@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+ï»¿using Cysharp.Threading.Tasks;
 using R3;
 using System.Linq;
 using System.Threading;
@@ -83,7 +83,7 @@ namespace Taki.Main.System.RubiksCube
         private void SetSlideCount()
         {
             _slideCount = _cubeSettings.CubeSize;
-            Debug.Log($"ƒXƒ‰ƒCƒh‰ñ“]‰ñ”‚ğ {_slideCount} ‚Éİ’è‚µ‚Ü‚µ‚½B");
+            Debug.Log($"ã‚¹ãƒ©ã‚¤ãƒ‰å›è»¢å›æ•°ã‚’ {_slideCount} ã«è¨­å®šã—ã¾ã—ãŸã€‚");
         }
     }
 }

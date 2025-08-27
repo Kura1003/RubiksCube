@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Taki.Main.Data.RubiksCube;
@@ -78,8 +78,8 @@ namespace Taki.Main.System.RubiksCube
 
                 Thrower.IfTrue(
                     prefabCount == 0,
-                    $"ƒLƒ…[ƒuƒs[ƒX‚ÌƒvƒŒƒnƒuƒŠƒXƒg‚ª‹ó‚Å‚·B" +
-                    $"Œ»İ‚ÌƒvƒŒƒnƒu”: {prefabCount}");
+                    $"ã‚­ãƒ¥ãƒ¼ãƒ–ãƒ”ãƒ¼ã‚¹ã®ãƒ—ãƒ¬ãƒãƒ–ãƒªã‚¹ãƒˆãŒç©ºã§ã™ã€‚" +
+                    $"ç¾åœ¨ã®ãƒ—ãƒ¬ãƒãƒ–æ•°: {prefabCount}");
 
                 foreach (var config in faceSpawnData)
                 {
@@ -153,7 +153,7 @@ namespace Taki.Main.System.RubiksCube
             }
             catch (Exception ex)
             {
-                Debug.LogError($"ƒLƒ…[ƒu‚Ì¶¬’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½: {ex.Message}");
+                Debug.LogError($"ã‚­ãƒ¥ãƒ¼ãƒ–ã®ç”Ÿæˆä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ: {ex.Message}");
                 return default;
             }
         }
@@ -192,8 +192,8 @@ namespace Taki.Main.System.RubiksCube
 
                 Thrower.IfTrue(
                     prefabCount == 0,
-                    $"ƒLƒ…[ƒuƒs[ƒX‚ÌƒvƒŒƒnƒuƒŠƒXƒg‚ª‹ó‚Å‚·B" +
-                    $"Œ»İ‚ÌƒvƒŒƒnƒu”: {prefabCount}");
+                    $"ã‚­ãƒ¥ãƒ¼ãƒ–ãƒ”ãƒ¼ã‚¹ã®ãƒ—ãƒ¬ãƒãƒ–ãƒªã‚¹ãƒˆãŒç©ºã§ã™ã€‚" +
+                    $"ç¾åœ¨ã®ãƒ—ãƒ¬ãƒãƒ–æ•°: {prefabCount}");
 
                 foreach (var config in faceSpawnData)
                 {
@@ -276,12 +276,12 @@ namespace Taki.Main.System.RubiksCube
             }
             catch (OperationCanceledException)
             {
-                Debug.Log("ƒLƒ…[ƒu‚Ì¶¬‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½B");
+                Debug.Log("ã‚­ãƒ¥ãƒ¼ãƒ–ã®ç”ŸæˆãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸã€‚");
                 return default;
             }
             catch (Exception ex)
             {
-                Debug.LogError($"ƒLƒ…[ƒu‚Ì¶¬’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½: {ex.Message}");
+                Debug.LogError($"ã‚­ãƒ¥ãƒ¼ãƒ–ã®ç”Ÿæˆä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ: {ex.Message}");
                 return default;
             }
         }
