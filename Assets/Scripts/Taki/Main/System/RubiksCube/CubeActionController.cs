@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -130,15 +130,15 @@ namespace Taki.Main.System.RubiksCube
                         })
                         .AddTo(_disposables);
 
-                    Debug.Log($"ƒ^ƒO: {tp.ActionTag} ‚ÌƒAƒNƒVƒ‡ƒ“‚ğ " +
-                              $"{tp.Provider.gameObject.name} ‚É“o˜^‚µ‚Ü‚µ‚½B");
+                    Debug.Log($"ã‚¿ã‚°: {tp.ActionTag} ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’ " +
+                              $"{tp.Provider.gameObject.name} ã«ç™»éŒ²ã—ã¾ã—ãŸã€‚");
                 });
         }
 
         public void UnregisterEvents()
         {
             _disposables.Dispose();
-            Debug.Log("‚·‚×‚Ä‚ÌƒLƒ…[ƒuƒCƒxƒ“ƒg‚Ì“o˜^‚ğ‰ğœ‚µ‚Ü‚µ‚½B");
+            Debug.Log("ã™ã¹ã¦ã®ã‚­ãƒ¥ãƒ¼ãƒ–ã‚¤ãƒ™ãƒ³ãƒˆã®ç™»éŒ²ã‚’è§£é™¤ã—ã¾ã—ãŸã€‚");
         }
 
         public UniTask ExecuteRebuild()

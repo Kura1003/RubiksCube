@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using R3;
@@ -56,15 +56,15 @@ namespace Taki.Audio
             {
                 Thrower.IfTrue(
                     string.IsNullOrEmpty(soundName), 
-                    $"‰¹ƒCƒxƒ“ƒg‚ÉƒTƒEƒ“ƒh–¼‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+                    $"éŸ³ã‚¤ãƒ™ãƒ³ãƒˆã«ã‚µã‚¦ãƒ³ãƒ‰åãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
 
                 AudioManager.Instance.Play(soundName, gameObject).SetVolume(volume);
             }
             catch (Exception ex)
             {
                 Debug.LogError(
-                    $"ƒTƒEƒ“ƒh '{soundName}' " +
-                    $"‚ÌÄ¶’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½: {ex.Message}");
+                    $"ã‚µã‚¦ãƒ³ãƒ‰ '{soundName}' " +
+                    $"ã®å†ç”Ÿä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ: {ex.Message}");
             }
         }
     }

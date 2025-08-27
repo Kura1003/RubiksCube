@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using System;
@@ -108,7 +108,7 @@ namespace Taki.Main.View
             _currentRotationMagnitude = 0f;
             _isInputActive = false;
 
-            AudioManager.Instance.Play("”µŽžŒv", gameObject).SetVolume(0.5f);
+            AudioManager.Instance.Play("é³©æ™‚è¨ˆ", gameObject).SetVolume(0.5f);
         }
 
         private void OnAngleThresholdExceeded()

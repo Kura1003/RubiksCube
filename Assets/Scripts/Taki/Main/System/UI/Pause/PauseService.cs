@@ -1,4 +1,4 @@
-using R3;
+ï»¿using R3;
 using UnityEngine;
 
 namespace Taki.Main.System
@@ -15,26 +15,26 @@ namespace Taki.Main.System
         {
             if (_isPaused)
             {
-                Debug.Log("ƒQ[ƒ€‚ÍŠù‚Éƒ|[ƒYó‘Ô‚Å‚·B");
+                Debug.Log("ã‚²ãƒ¼ãƒ ã¯æ—¢ã«ãƒãƒ¼ã‚ºçŠ¶æ…‹ã§ã™ã€‚");
                 return;
             }
 
             _isPaused = true;
             OnPauseRequested.OnNext(Unit.Default);
-            Debug.Log("ƒQ[ƒ€‚ğƒ|[ƒY‚µ‚Ü‚µ‚½B");
+            Debug.Log("ã‚²ãƒ¼ãƒ ã‚’ãƒãƒ¼ã‚ºã—ã¾ã—ãŸã€‚");
         }
 
         public void Resume()
         {
             if (!_isPaused)
             {
-                Debug.Log("ƒQ[ƒ€‚ÍŠù‚ÉÄŠJ‚³‚ê‚Ä‚¢‚Ü‚·B");
+                Debug.Log("ã‚²ãƒ¼ãƒ ã¯æ—¢ã«å†é–‹ã•ã‚Œã¦ã„ã¾ã™ã€‚");
                 return;
             }
 
             _isPaused = false;
             OnResumeRequested.OnNext(Unit.Default);
-            Debug.Log("ƒQ[ƒ€‚ğÄŠJ‚µ‚Ü‚µ‚½B");
+            Debug.Log("ã‚²ãƒ¼ãƒ ã‚’å†é–‹ã—ã¾ã—ãŸã€‚");
         }
 
         public void Dispose()

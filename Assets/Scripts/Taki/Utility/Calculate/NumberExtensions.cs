@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 
 namespace Taki.Utility
 {
@@ -41,9 +41,9 @@ namespace Taki.Utility
             }
 
             throw new ArgumentException(
-                $"Œ^ {typeof(T).Name} ‚ÍA" +
-                $"Negate ƒƒ\ƒbƒh‚ÅƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚Ü‚¹‚ñA" +
-                $"‚Ü‚½‚Í•„†‚È‚µ‚ÌŒ^‚Å‚·B", nameof(value));
+                $"å‹ {typeof(T).Name} ã¯ã€" +
+                $"Negate ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã¾ã›ã‚“ã€" +
+                $"ã¾ãŸã¯ç¬¦å·ãªã—ã®å‹ã§ã™ã€‚", nameof(value));
         }
     }
 }

@@ -1,5 +1,6 @@
-using Taki.Main.System;
+﻿using Taki.Main.System;
 using Taki.Main.View;
+using Taki.StartMenu.UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -8,11 +9,13 @@ namespace Taki.StartMenu.System
 {
     public sealed class StartMenuLifetimeScope : LifetimeScope
     {
+        [SerializeField] private StartMenuBackground _startMenuBackground;
         [SerializeField] private GUIScreenFader _guiScreenFader;
         [SerializeField] private TextTyper _titleTextTyper;
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterComponent(_startMenuBackground);
             builder.RegisterComponent(_guiScreenFader).AsImplementedInterfaces();
             builder.RegisterEntryPoint<GUIScreenFaderInitializer>(Lifetime.Singleton);
 

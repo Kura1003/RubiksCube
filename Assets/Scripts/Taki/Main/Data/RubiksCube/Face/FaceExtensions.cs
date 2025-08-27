@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using Taki.Utility.Core;
 
@@ -73,7 +73,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 !IsSingleFlag(self),
-                $"IsContainedInƒƒ\ƒbƒh‚Í’Pˆê‚ÌFaceƒtƒ‰ƒO‚É‚Ì‚İg—p‚Å‚«‚Ü‚·B");
+                $"IsContainedInãƒ¡ã‚½ãƒƒãƒ‰ã¯å˜ä¸€ã®Faceãƒ•ãƒ©ã‚°ã«ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚");
 
             return other.HasFlag(self);
         }
@@ -82,7 +82,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 !IsSingleFlag(self),
-                $"Oppositeƒƒ\ƒbƒh‚Í’Pˆê‚ÌFaceƒtƒ‰ƒO‚É‚Ì‚İg—p‚Å‚«‚Ü‚·B");
+                $"Oppositeãƒ¡ã‚½ãƒƒãƒ‰ã¯å˜ä¸€ã®Faceãƒ•ãƒ©ã‚°ã«ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚");
 
             return self switch
             {
@@ -93,7 +93,7 @@ namespace Taki.Main.Data.RubiksCube
                 Face.Top => Face.Bottom,
                 Face.Bottom => Face.Top,
                 _ => throw new ArgumentException(
-                    $"—\Šú‚µ‚È‚¢Faceƒtƒ‰ƒO‚Å‚·: {self}",
+                    $"äºˆæœŸã—ãªã„Faceãƒ•ãƒ©ã‚°ã§ã™: {self}",
                     nameof(self))
             };
         }
@@ -102,7 +102,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 layerInfo.IsMiddleLayer,
-                $"’†‰›‚Ì’i‚ğ‰ñ‚·ê‡A‰ñ“]–Ê‚Í’è‹`‚³‚ê‚Ü‚¹‚ñB");
+                $"ä¸­å¤®ã®æ®µã‚’å›ã™å ´åˆã€å›è»¢é¢ã¯å®šç¾©ã•ã‚Œã¾ã›ã‚“ã€‚");
 
             return layerInfo.IsFrontLayer ? self : self.Opposite();
         }
@@ -127,7 +127,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 !IsSingleFlag(self),
-                $"GetSideRotationLineInfosƒƒ\ƒbƒh‚Í’Pˆê‚ÌFaceƒtƒ‰ƒO‚É‚Ì‚İg—p‚Å‚«‚Ü‚·B");
+                $"GetSideRotationLineInfosãƒ¡ã‚½ãƒƒãƒ‰ã¯å˜ä¸€ã®Faceãƒ•ãƒ©ã‚°ã«ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚");
 
             return _sideLineInfoMap[self];
         }

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Taki.Utility.Core;
@@ -22,7 +22,7 @@ namespace Taki.Utility
         internal static string Generate(int length, CharType charType)
         {
             Thrower.IfOutOfRange(length, 1, int.MaxValue);
-            Thrower.IfTrue(charType == 0, $"CharType‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+            Thrower.IfTrue(charType == 0, $"CharTypeã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 
             var charSet = new List<char>();
             if (charType.HasFlag(CharType.LowerCase))
@@ -55,7 +55,7 @@ namespace Taki.Utility
         internal static string GenerateUnique(int length, CharType charType)
         {
             Thrower.IfOutOfRange(length, 1, int.MaxValue);
-            Thrower.IfTrue(charType == 0, $"CharType‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+            Thrower.IfTrue(charType == 0, $"CharTypeã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
 
             var charSet = new List<char>();
             if (charType.HasFlag(CharType.LowerCase))
@@ -74,8 +74,8 @@ namespace Taki.Utility
             }
 
             Thrower.IfTrue(length > charSet.Count,
-                $"¶¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚é•¶š—ñ‚Ì’·‚³({length})‚ªA" +
-                $"g—p‰Â”\‚ÈˆêˆÓ‚È•¶š”({charSet.Count})‚ğ’´‚¦‚Ä‚¢‚Ü‚·B");
+                $"ç”Ÿæˆã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹æ–‡å­—åˆ—ã®é•·ã•({length})ãŒã€" +
+                $"ä½¿ç”¨å¯èƒ½ãªä¸€æ„ãªæ–‡å­—æ•°({charSet.Count})ã‚’è¶…ãˆã¦ã„ã¾ã™ã€‚");
 
             var random = SeedGenerator.GetRandom();
             var sb = new StringBuilder(length);

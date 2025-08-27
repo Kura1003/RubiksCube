@@ -1,6 +1,7 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
+using Taki.StartMenu.UI;
 using Taki.Utility.Core;
 using UnityEngine;
 using VContainer.Unity;
@@ -9,6 +10,7 @@ namespace Taki.StartMenu.System
 {
     internal class StartMenuEntrypoint : IInitializable, ITickable
     {
+        private readonly StartMenuBackground _startMenuBackground;
         private readonly TextTyper _titleTextTyper;
 
         private readonly IScreenFader _screenFader;
@@ -18,10 +20,12 @@ namespace Taki.StartMenu.System
 
         public StartMenuEntrypoint(
             LifetimeScope lifetimeScope,
+            StartMenuBackground startMenuBackground,
             TextTyper titleTextTyper,
             IScreenFader screenFader,
             IMainSceneLoader mainSceneLoader)
         {
+            _startMenuBackground = startMenuBackground;
             _titleTextTyper = titleTextTyper;
 
             _screenFader = screenFader;
@@ -32,7 +36,10 @@ namespace Taki.StartMenu.System
 
         public async void Initialize()
         {
-            await UniTask.Yield();
+            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
+            _startMenuBackground.Generate();
+
+            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
             var isCancelled = await _screenFader
                 .FadeOut(
                 _destroyCancellationToken)
