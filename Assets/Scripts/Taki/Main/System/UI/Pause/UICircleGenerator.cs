@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using UnityEngine;
-using Taki.Utility;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Taki.Utility;
+using UnityEngine;
 
 namespace Taki.Main.System
 {

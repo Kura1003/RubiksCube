@@ -1,8 +1,8 @@
+﻿using R3;
 using Taki.Main.Data.RubiksCube;
+using Taki.Main.View;
 using UnityEngine;
 using VContainer;
-using Taki.Main.View;
-using R3;
 
 namespace Taki.Main.System.RubiksCube
 {

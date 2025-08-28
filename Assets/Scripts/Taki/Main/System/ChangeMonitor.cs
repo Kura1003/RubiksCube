@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using System;
 using Taki.Utility.Core;
-using System;
+using UnityEngine;
 
 namespace Taki.Main.System
 {

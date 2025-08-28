@@ -1,10 +1,10 @@
-using AnnulusGames.LucidTools.Audio;
+﻿using AnnulusGames.LucidTools.Audio;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEngine;
 using Taki.Utility.Core;
+using UnityEngine;
 
 namespace Taki.Audio
 {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using R3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using R3;
 using Taki.Utility;
 using Taki.Utility.Core;
 using UnityEngine;

@@ -1,6 +1,6 @@
-using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Taki.Utility;
+using UnityEngine;
 
 namespace Taki.Main.View
 {

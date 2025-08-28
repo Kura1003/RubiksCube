@@ -1,9 +1,9 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Main.View;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
-using UnityEngine;
 
 namespace Taki.StartMenu.System
 {

@@ -450,6 +450,7 @@ MonoBehaviour:
   _targetText: {fileID: 157379105}
   _characterInterval: 0.05
   _ignoreTimeScale: 1
+  _playAudio: 1
   _textToType: Piece
 --- !u!114 &157379105
 MonoBehaviour:
@@ -1310,6 +1311,7 @@ MonoBehaviour:
   _targetText: {fileID: 365835142}
   _characterInterval: 0.05
   _ignoreTimeScale: 1
+  _playAudio: 1
   _textToType: CubeSize
 --- !u!114 &365835142
 MonoBehaviour:
@@ -5841,6 +5843,7 @@ MonoBehaviour:
   _targetScale: {x: 0.7, y: 0.7}
   _line1Image: {fileID: 624552391}
   _line2Image: {fileID: 2042163743}
+  _ignoreTimeScale: 1
 --- !u!114 &1911573136
 MonoBehaviour:
   m_ObjectHideFlags: 0

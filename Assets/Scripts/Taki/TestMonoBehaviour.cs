@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using DG.Tweening;
-using Taki.Main.View;
 
 namespace Taki.Test
 {

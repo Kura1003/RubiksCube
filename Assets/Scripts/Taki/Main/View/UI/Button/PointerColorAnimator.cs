@@ -1,11 +1,11 @@
+﻿using DG.Tweening;
+using R3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using Taki.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using R3;
-using DG.Tweening;
-using Taki.Utility;
 
 namespace Taki.Main.View
 {

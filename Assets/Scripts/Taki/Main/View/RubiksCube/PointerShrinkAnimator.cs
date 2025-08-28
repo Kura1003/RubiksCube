@@ -1,8 +1,8 @@
-using UnityEngine;
-using DG.Tweening;
-using Taki.Utility;
-using Taki.Main.System;
+﻿using DG.Tweening;
 using System;
+using Taki.Main.System;
+using Taki.Utility;
+using UnityEngine;
 
 namespace Taki.Main.View.RubiksCube
 {

@@ -51,12 +51,12 @@ namespace Taki.Main.System
         public async void Initialize()
         {
             await SetupSystem().SuppressCancellationThrow();
-            var isCancelled = await _screenFader
-                .FadeOut(
-                _destroyCancellationToken)
-                .SuppressCancellationThrow();
+            await _screenFader
+               .FadeOut(
+               _destroyCancellationToken)
+               .SuppressCancellationThrow();
 
-            isCancelled = await UniTask.WaitForSeconds(
+            var isCancelled = await UniTask.WaitForSeconds(
                 1.0f,
                 cancellationToken: _destroyCancellationToken,
                 ignoreTimeScale: true)

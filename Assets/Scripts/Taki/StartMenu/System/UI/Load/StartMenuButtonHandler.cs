@@ -1,8 +1,8 @@
-using AnnulusGames.LucidTools.Audio;
-using VContainer;
-using Taki.Utility;
+﻿using AnnulusGames.LucidTools.Audio;
 using Cysharp.Threading.Tasks;
 using Taki.Audio;
+using Taki.Utility;
+using VContainer;
 
 namespace Taki.StartMenu.System
 {

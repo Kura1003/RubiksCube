@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using Taki.Utility;
 using Taki.Utility.Core;
@@ -53,7 +53,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfTrue(
                 !_faceManagersMap.ContainsKey(face),
-                $"w’è‚³‚ê‚½–Ê {face} ‚É‘Î‰‚·‚éƒ}ƒl[ƒWƒƒ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB"
+                $"æŒ‡å®šã•ã‚ŒãŸé¢ {face} ã«å¯¾å¿œã™ã‚‹ãƒãƒãƒ¼ã‚¸ãƒ£ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚"
             );
 
             return _faceManagersMap[face];

@@ -1,5 +1,5 @@
+﻿using Taki.Utility;
 using UnityEngine;
-using Taki.Utility;
 
 namespace Taki.Main.Data.RubiksCube
 {

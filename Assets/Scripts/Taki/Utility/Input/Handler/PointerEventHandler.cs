@@ -1,6 +1,6 @@
-using R3;
-using UnityEngine;
+ï»¿using R3;
 using Taki.Utility.Core;
+using UnityEngine;
 
 namespace Taki.Utility
 {
@@ -40,8 +40,8 @@ namespace Taki.Utility
                 .AddTo(_disposables);
 
             Debug.Log(
-                $"{gameObject.name} ‚ÉƒAƒ^ƒbƒ`‚³‚ê‚½ " +
-                $"{GetType().Name} ‚Ì‰Šú‰»‚ªŠ®—¹‚µ‚Ü‚µ‚½B");
+                $"{gameObject.name} ã«ã‚¢ã‚¿ãƒƒãƒã•ã‚ŒãŸ " +
+                $"{GetType().Name} ã®åˆæœŸåŒ–ãŒå®Œäº†ã—ã¾ã—ãŸã€‚");
         }
 
         protected virtual void OnDestroy()

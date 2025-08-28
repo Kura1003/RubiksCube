@@ -1,5 +1,5 @@
+﻿using DG.Tweening;
 using UnityEngine;
-using DG.Tweening;
 
 namespace Taki.Main.Data.RubiksCube
 {

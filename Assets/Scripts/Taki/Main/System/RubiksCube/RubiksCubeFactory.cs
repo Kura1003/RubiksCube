@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using R3;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Taki.Main.Data.RubiksCube;
 using Taki.Utility;
 using Taki.Utility.Core;
 using UnityEngine;
-using R3;
-using System;
-using Cysharp.Threading.Tasks;
 
 namespace Taki.Main.System.RubiksCube
 {

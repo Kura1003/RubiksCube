@@ -1,5 +1,5 @@
+﻿using Cysharp.Threading.Tasks;
 using System;
-using Cysharp.Threading.Tasks;
 
 namespace Taki.Main.System.RubiksCube
 {
