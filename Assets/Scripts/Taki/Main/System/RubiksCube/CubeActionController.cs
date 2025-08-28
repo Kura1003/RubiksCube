@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using R3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
-using R3;
 using Taki.Audio;
 using Taki.Main.Data.RubiksCube;
 using Taki.Main.View;

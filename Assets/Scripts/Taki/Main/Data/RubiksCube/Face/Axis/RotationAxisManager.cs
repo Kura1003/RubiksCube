@@ -1,6 +1,6 @@
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using Taki.Utility.Core;
+using UnityEngine;
 
 namespace Taki.Main.Data.RubiksCube
 {

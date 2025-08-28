@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 using Taki.Audio;
 using Taki.Utility;
+using UnityEngine;
 
 namespace Taki.Main.View
 {

@@ -1,14 +1,14 @@
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using R3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
-using R3;
-using TMPro;
-using Taki.Utility;
-using UnityEngine;
 using Taki.Audio;
+using Taki.Utility;
+using TMPro;
+using UnityEngine;
 
 namespace Taki.Main.View
 {

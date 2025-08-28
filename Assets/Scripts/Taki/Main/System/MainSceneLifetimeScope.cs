@@ -1,4 +1,4 @@
-using Taki.Main.Data.RubiksCube;
+﻿using Taki.Main.Data.RubiksCube;
 using Taki.Main.System.RubiksCube;
 using Taki.Main.View;
 using Taki.Utility;

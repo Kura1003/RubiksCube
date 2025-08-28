@@ -1,12 +1,12 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using R3;
-using Taki.Main.System;
-using System.Threading;
-using UnityEngine;
-using VContainer;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Taki.Audio;
+using Taki.Main.System;
+using UnityEngine;
+using VContainer;
 
 namespace Taki.Main.View
 {

@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +16,7 @@ namespace Taki.Audio
 
         [SerializeField] private Image _line1Image;
         [SerializeField] private Image _line2Image;
+        [SerializeField] private bool _ignoreTimeScale = false;
 
         private bool _isAnimating = false;
         private Texture2D _xMarkTexture;
@@ -24,24 +25,24 @@ namespace Taki.Audio
         private void Awake()
         {
             _xMarkTexture = CreateColorTexture(_xMarkColor);
-            _line1Image.sprite = 
+            _line1Image.sprite =
                 Sprite.Create(
-                    _xMarkTexture, 
+                    _xMarkTexture,
                     new Rect(
-                        0, 
-                        0, 
-                        _xMarkTexture.width, 
-                        _xMarkTexture.height), 
+                        0,
+                        0,
+                        _xMarkTexture.width,
+                        _xMarkTexture.height),
                     Vector2.one * 0.5f);
 
-            _line2Image.sprite = 
+            _line2Image.sprite =
                 Sprite.Create(
-                    _xMarkTexture, 
+                    _xMarkTexture,
                     new Rect(
-                        0, 
-                        0, 
-                        _xMarkTexture.width, 
-                        _xMarkTexture.height), 
+                        0,
+                        0,
+                        _xMarkTexture.width,
+                        _xMarkTexture.height),
                     Vector2.one * 0.5f);
 
             _line1Image.transform.localScale = Vector3.zero;
@@ -92,7 +93,7 @@ namespace Taki.Audio
 
             _currentAnimationSequence
                 .SetEase(_animationEase)
-                .SetUpdate(true)
+                .SetUpdate(_ignoreTimeScale)
                 .OnComplete(() => _isAnimating = false);
         }
 
