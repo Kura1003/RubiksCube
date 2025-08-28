@@ -32,7 +32,7 @@ namespace Taki.StartMenu.System
 
         public async void Initialize()
         {
-            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
+            await UniTask.DelayFrame(2, cancellationToken: _destroyCancellationToken);
             var isCancelled = await _screenFader
                 .FadeOut(
                 _destroyCancellationToken)
