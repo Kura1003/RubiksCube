@@ -1,4 +1,4 @@
-using AnnulusGames.LucidTools.Audio;
+﻿using AnnulusGames.LucidTools.Audio;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using Taki.Audio;
@@ -56,6 +56,12 @@ namespace Taki.Main.System
                 _destroyCancellationToken)
                 .SuppressCancellationThrow();
 
+            isCancelled = await UniTask.WaitForSeconds(
+                1.0f,
+                cancellationToken: _destroyCancellationToken,
+                ignoreTimeScale: true)
+                .SuppressCancellationThrow();
+
             if (!isCancelled)
             {
                 OnFadeOutComplete();
@@ -95,13 +101,8 @@ namespace Taki.Main.System
             await _cubeInteractionHandler.ExecuteRebuild();
         }
 
-        private async void OnFadeOutComplete()
+        private void OnFadeOutComplete()
         {
-            await UniTask.WaitForSeconds(
-                1.0f,
-                cancellationToken: _destroyCancellationToken,
-                ignoreTimeScale: true);
-
             LucidAudio.BGMVolume = 1f;
             LucidAudio.SEVolume = 1f;
             _audioManager.CurrentBgmPlayer = _audioManager
