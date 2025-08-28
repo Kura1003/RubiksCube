@@ -41,7 +41,7 @@ namespace Taki.StartMenu.System
             if (!isCancelled)
             {
                 await _titleTextTyper
-                    .Type(cancellationToken: _destroyCancellationToken)
+                    .Type(_destroyCancellationToken)
                     .SuppressCancellationThrow();
 
                 _mainSceneLoader.PreloadMainScene();
