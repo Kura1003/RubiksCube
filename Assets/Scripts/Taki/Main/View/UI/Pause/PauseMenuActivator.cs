@@ -38,7 +38,7 @@ namespace Taki.Main.View
             var tasks = new List<UniTask>();
 
             var typerTasks = _textTypers
-                .Select(typer => typer.Type(cancellationToken: token))
+                .Select(typer => typer.Type(token))
                 .ToList();
 
             tasks.AddRange(typerTasks);
