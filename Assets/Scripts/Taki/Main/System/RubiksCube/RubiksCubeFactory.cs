@@ -84,7 +84,7 @@ namespace Taki.Main.System.RubiksCube
                 foreach (var config in faceSpawnData)
                 {
                     var face = config.Face;
-                    var id = face.ToString()[0].ToString();
+                    var faceIdPrefix = face.ToString()[0].ToString();
                     var faceSpawnInfo = config.SpawnInfo;
                     var faceNormal = parentTransform.TransformDirection(faceSpawnInfo.Normal);
                     var faceCenter = parentTransform.position + faceNormal * (cubeSize * pieceSpacing / 2f);
@@ -115,8 +115,10 @@ namespace Taki.Main.System.RubiksCube
 
                             _instantiatedPieces.Add(pieceGO);
 
-                            var pieceInfo = new PieceInfo(pieceGO.transform, id);
+                            var pieceId = $"{faceIdPrefix}{row * cubeSize + col + 1}";
+                            var pieceInfo = new PieceInfo(pieceGO.transform, pieceId);
                             piecesMatrix[row, col] = pieceInfo;
+                            Debug.Log($"生成されたピースのID: {pieceId}");
                         }
                     }
 
@@ -200,7 +202,7 @@ namespace Taki.Main.System.RubiksCube
                     token.ThrowIfCancellationRequested();
 
                     var face = config.Face;
-                    var id = face.ToString()[0].ToString();
+                    var faceIdPrefix = face.ToString()[0].ToString();
                     var faceSpawnInfo = config.SpawnInfo;
                     var faceNormal = parentTransform.TransformDirection(faceSpawnInfo.Normal);
                     var faceCenter = parentTransform.position + faceNormal * (cubeSize * pieceSpacing / 2f);
@@ -233,8 +235,10 @@ namespace Taki.Main.System.RubiksCube
 
                             _instantiatedPieces.Add(pieceGO);
 
-                            var pieceInfo = new PieceInfo(pieceGO.transform, id);
+                            var pieceId = $"{faceIdPrefix}{row * cubeSize + col + 1}";
+                            var pieceInfo = new PieceInfo(pieceGO.transform, pieceId);
                             piecesMatrix[row, col] = pieceInfo;
+                            Debug.Log($"生成されたピースのID: {pieceId}");
                         }
 
                         await UniTask.Yield();

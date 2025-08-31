@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
-using Taki.Main.View;
+using Taki.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
