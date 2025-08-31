@@ -1,5 +1,5 @@
-﻿using Taki.Main.System;
-using Taki.Main.View;
+﻿using Taki.Main.View;
+using Taki.Utility;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

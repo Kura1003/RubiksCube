@@ -105,6 +105,7 @@ namespace Taki.Main.View
         }
 
         private UniTask RotateClockwise(CancellationToken token) => Rotate(-1, token);
+
         private UniTask RotateCounterClockwise(CancellationToken token) => Rotate(1, token);
 
         private UniTask Rotate(int direction, CancellationToken token)

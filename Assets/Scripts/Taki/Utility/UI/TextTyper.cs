@@ -5,7 +5,7 @@ using TMPro;
 using Taki.Audio;
 using UnityEngine;
 
-namespace Taki.Main.View
+namespace Taki.Utility
 {
     public class TextTyper : MonoBehaviour
     {

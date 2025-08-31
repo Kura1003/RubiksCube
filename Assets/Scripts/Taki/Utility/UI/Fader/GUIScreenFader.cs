@@ -1,9 +1,9 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System.Threading;
 using UnityEngine;
 
-namespace Taki.Main.View
+namespace Taki.Utility
 {
     public sealed class GUIScreenFader : MonoBehaviour, IScreenFader
     {

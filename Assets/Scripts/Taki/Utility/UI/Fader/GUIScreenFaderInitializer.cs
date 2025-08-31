@@ -1,9 +1,9 @@
-using Taki.Main.View;
+﻿using Taki.Main.View;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Taki.Main.System
+namespace Taki.Utility
 {
     public sealed class GUIScreenFaderInitializer : IInitializable
     {

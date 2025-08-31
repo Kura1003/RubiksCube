@@ -1,8 +1,8 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using UnityEngine;
 
-namespace Taki.Main.View
+namespace Taki.Utility
 {
     internal interface IScreenFader
     {
