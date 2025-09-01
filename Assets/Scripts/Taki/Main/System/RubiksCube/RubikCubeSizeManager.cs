@@ -49,8 +49,7 @@ namespace Taki.Main.System.RubiksCube
             float lerpFactor = _previousCubeSize * 0.1f;
             float lerpedValue = Mathf.Lerp(0, 2.0f, lerpFactor);
 
-            Debug.Log($"Calculated Lerped Value: {lerpedValue}");
-
+            Debug.Log($"計算されたLerp値: {lerpedValue}");
             return lerpedValue;
         }
 

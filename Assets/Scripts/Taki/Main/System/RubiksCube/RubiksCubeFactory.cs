@@ -304,6 +304,7 @@ namespace Taki.Main.System.RubiksCube
                 .Where(axisGO => axisGO != null)
                 .ToList()
                 .ForEach(Destroy);
+
             _instantiatedRotationAxes.Clear();
 
             _onCubeDestroyed.OnNext(Unit.Default);

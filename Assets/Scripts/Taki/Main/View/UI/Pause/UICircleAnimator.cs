@@ -21,7 +21,7 @@ namespace Taki.Main.View
         private readonly List<Vector3> _doubleRadiusPositions = new();
         private readonly List<Tween> _activeTweens = new();
 
-        private bool _isSpecialTaskExecuting = false;
+        private bool _isAnimatingDoubleRadius = false;
 
         public void Initialize()
         {
@@ -59,7 +59,7 @@ namespace Taki.Main.View
 
         public async UniTask OpenAnimation(CancellationToken token)
         {
-            if (_isSpecialTaskExecuting) return;
+            if (_isAnimatingDoubleRadius) return;
 
             CancelAllAnimations();
 
@@ -81,7 +81,7 @@ namespace Taki.Main.View
 
         public async UniTask CloseAnimation(CancellationToken token)
         {
-            if (_isSpecialTaskExecuting) return;
+            if (_isAnimatingDoubleRadius) return;
 
             CancelAllAnimations();
 
@@ -103,11 +103,11 @@ namespace Taki.Main.View
 
         public async UniTask MoveToDoubleInitialPosition(CancellationToken token)
         {
-            if (_isSpecialTaskExecuting) return;
+            if (_isAnimatingDoubleRadius) return;
 
             CancelAllAnimations();
 
-            _isSpecialTaskExecuting = true;
+            _isAnimatingDoubleRadius = true;
 
             var tasks = _instantiatedItems.Select((t, i) =>
             {
@@ -124,7 +124,7 @@ namespace Taki.Main.View
             await UniTask.WhenAll(tasks);
 
             _instantiatedItems.ForEach(t => t.localPosition = Vector3.zero);
-            _isSpecialTaskExecuting = false;
+            _isAnimatingDoubleRadius = false;
         }
 
         private void CancelAllAnimations()
