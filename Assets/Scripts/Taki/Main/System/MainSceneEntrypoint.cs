@@ -50,7 +50,9 @@ namespace Taki.Main.System
 
         public async void Initialize()
         {
-            await SetupSystem().SuppressCancellationThrow();
+            await SetupSystem()
+                .SuppressCancellationThrow();
+
             await _screenFader
                .FadeOut(
                _destroyCancellationToken)
@@ -92,7 +94,6 @@ namespace Taki.Main.System
             _lockEntrypoint.SetAllUserInputLocks(true);
 
             await UniTask.Yield(cancellationToken: _destroyCancellationToken);
-
         }
 
         private async UniTask PreloadCube()
