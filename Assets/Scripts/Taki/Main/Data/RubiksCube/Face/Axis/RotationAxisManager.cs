@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Taki.Main.Data.RubiksCube
 {
-    internal class RotationAxisManager : IRotationAxisProvider
+    internal sealed class RotationAxisManager : IRotationAxisProvider
     {
         private Transform _parentTransform;
         private Dictionary<Face, RotationAxisInfo> _axisInfoMap = new();

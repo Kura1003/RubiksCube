@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Taki.Main.Data.RubiksCube
 {
     internal readonly struct RotationLineInfo
     {
-        public Face Face { get; }
+        internal Face Face { get; }
 
         private readonly Line _lineType;
 

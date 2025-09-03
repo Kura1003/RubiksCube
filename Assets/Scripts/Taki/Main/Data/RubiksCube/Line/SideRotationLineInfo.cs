@@ -1,13 +1,13 @@
-
+﻿
 namespace Taki.Main.Data.RubiksCube
 {
     internal readonly struct SideRotationLineInfo
     {
-        public Face LineFace { get; }
+        internal Face LineFace { get; }
 
-        public Line LineType { get; }
+        internal Line LineType { get; }
 
-        public bool IsReversed { get; }
+        internal bool IsReversed { get; }
 
         internal SideRotationLineInfo(
             Face lineFace,
@@ -23,17 +23,17 @@ namespace Taki.Main.Data.RubiksCube
             int layerIndex,
             int size)
         {
-            int index = 0;
             if (IsReversed)
             {
-                index = (size - 1 - layerIndex) % size;
-            }
-            else
-            {
-                index = layerIndex % size;
+                int normalizedIndex = (size - 1 - layerIndex) % size;
+                return new RotationLineInfo(LineFace, LineType, normalizedIndex);
             }
 
-            return new RotationLineInfo(LineFace, LineType, index);
+            else
+            {
+                int normalizedIndex = layerIndex % size;
+                return new RotationLineInfo(LineFace, LineType, normalizedIndex);
+            }
         }
     }
 }

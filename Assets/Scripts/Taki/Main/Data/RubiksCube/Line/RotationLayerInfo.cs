@@ -1,13 +1,13 @@
-
+﻿
 namespace Taki.Main.Data.RubiksCube
 {
     internal readonly struct RotationLayerInfo
     {
-        public bool IsFrontLayer { get; }
-        public bool IsOppositeLayer { get; }
-        public bool IsMiddleLayer { get; }
+        internal bool IsFrontLayer { get; }
+        internal bool IsOppositeLayer { get; }
+        internal bool IsMiddleLayer { get; }
 
-        public RotationLayerInfo(int layerIndex, int size)
+        internal RotationLayerInfo(int layerIndex, int size)
         {
             IsFrontLayer = layerIndex == 0;
             IsOppositeLayer = layerIndex == size - 1;
