@@ -7,7 +7,7 @@ namespace Taki.Main.Data.RubiksCube
         fileName = "CubeSettings",
         menuName = "ScriptableObjects/CubeSettings",
         order = 1)]
-    internal sealed class CubeSettings :
+    public sealed class CubeSettings :
         ScriptableObject
     {
         [Header("Cube Configuration")]

@@ -40,7 +40,9 @@ namespace Taki.Main.View
             _currentTweens.ForEach(tween => tween?.Kill());
         }
 
-        public void SetGraphicEntries(List<GraphicColorEntry> newGraphicEntries, bool append = false)
+        public void SetGraphicEntries(
+            List<GraphicColorEntry> newGraphicEntries, 
+            bool append = false)
         {
             _currentTweens.ForEach(tween => tween?.Kill());
             _currentTweens.Clear();

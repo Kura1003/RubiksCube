@@ -1,4 +1,4 @@
-
+﻿
 namespace Taki.Main.Data.RubiksCube
 {
     internal readonly struct FaceManagers
@@ -7,9 +7,9 @@ namespace Taki.Main.Data.RubiksCube
         private readonly FaceSwapper _swapper;
         private readonly FaceTransformManipulator _manipulator;
 
-        public FaceCoordinatesManager CoordinatesManager => _coordinatesManager;
-        public FaceSwapper Swapper => _swapper;
-        public FaceTransformManipulator Manipulator => _manipulator;
+        internal FaceCoordinatesManager CoordinatesManager => _coordinatesManager;
+        internal FaceSwapper Swapper => _swapper;
+        internal FaceTransformManipulator Manipulator => _manipulator;
 
         internal FaceManagers(
             PieceInfo[,] piecesInfo,

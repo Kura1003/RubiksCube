@@ -43,8 +43,7 @@ namespace Taki.Main.Data.RubiksCube
             for (int i = 0; i < _cachedSize; i++)
             {
                 Vector2Int index = lineInfo.GetIndex(i);
-                _localPositions[index.x, index.y] 
-                    = PiecesInfo[index.x, index.y].Transform.localPosition;
+                _localPositions[index.x, index.y] = PiecesInfo[index.x, index.y].Transform.localPosition;
             }
         }
 
@@ -53,8 +52,7 @@ namespace Taki.Main.Data.RubiksCube
             for (int i = 0; i < _cachedSize; i++)
             {
                 Vector2Int index = lineInfo.GetIndex(i);
-                _localRotations[index.x, index.y] 
-                    = PiecesInfo[index.x, index.y].Transform.localRotation;
+                _localRotations[index.x, index.y] = PiecesInfo[index.x, index.y].Transform.localRotation;
             }
         }
 
