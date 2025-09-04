@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Taki.Utility;
 using UnityEngine;
 using VContainer;
@@ -20,14 +20,17 @@ namespace Taki.Main.View
         {
             _screenFader.SetFadeDuration(_fadeDuration);
             _screenFader.SetFadeInTargetAlpha(_fadeInTargetAlpha);
-            _screenFader.FadeIn(destroyCancellationToken, true)
+
+            _screenFader
+                .FadeIn(destroyCancellationToken, true)
                 .SuppressCancellationThrow()
                 .Forget();
         }
 
         protected override void OnPointerExited()
         {
-            _screenFader.FadeOut(destroyCancellationToken)
+            _screenFader
+                .FadeOut(destroyCancellationToken)
                 .SuppressCancellationThrow()
                 .Forget();
         }

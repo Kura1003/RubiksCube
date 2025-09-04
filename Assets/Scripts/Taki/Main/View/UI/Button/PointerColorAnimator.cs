@@ -29,14 +29,12 @@ namespace Taki.Main.View
         protected override void Awake()
         {
             base.Awake();
-
             InitializeGraphicEntries(_graphicEntries);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             _currentTweens.ForEach(tween => tween?.Kill());
         }
 

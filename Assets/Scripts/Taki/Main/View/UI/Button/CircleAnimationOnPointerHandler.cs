@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Taki.Utility;
 using UnityEngine;
 using VContainer;
@@ -21,14 +21,16 @@ namespace Taki.Main.View
 
         protected override void OnPointerEntered()
         {
-            _circleAnimator.OpenAnimation(destroyCancellationToken)
+            _circleAnimator
+                .OpenAnimation(destroyCancellationToken)
                 .SuppressCancellationThrow()
                 .Forget();
         }
 
         protected override void OnPointerExited()
         {
-            _circleAnimator.CloseAnimation(destroyCancellationToken)
+            _circleAnimator
+                .CloseAnimation(destroyCancellationToken)
                 .SuppressCancellationThrow()
                 .Forget();
         }
