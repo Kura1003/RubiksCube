@@ -72,7 +72,7 @@ namespace Taki.Main.View
             }
 
             tasks.Add(_dualCanvasGroupFader.FadeIn(token));
-            _circleAnimator.MoveToDoubleInitialPosition(token).Forget();
+            tasks.Add(_circleAnimator.MoveToDoubleInitialPosition(token));
 
             await UniTask.WhenAll(tasks);
         }
