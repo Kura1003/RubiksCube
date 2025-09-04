@@ -19,7 +19,6 @@ namespace Taki.Main.View
         protected override void Awake()
         {
             base.Awake();
-
             _originalPosition = transform.localPosition;
             _targetPosition
                 = _originalPosition + (_moveDirection.normalized * _moveDistance);
@@ -28,7 +27,6 @@ namespace Taki.Main.View
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             _currentTween?.Kill();
         }
 

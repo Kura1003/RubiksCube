@@ -17,14 +17,12 @@ namespace Taki.Main.View
         protected override void Awake()
         {
             base.Awake();
-
             _originalScale = transform.localScale;
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             _currentTween?.Kill();
         }
 

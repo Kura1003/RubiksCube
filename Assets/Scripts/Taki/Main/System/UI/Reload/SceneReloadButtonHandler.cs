@@ -1,4 +1,4 @@
-using AnnulusGames.LucidTools.Audio;
+﻿using AnnulusGames.LucidTools.Audio;
 using Cysharp.Threading.Tasks;
 using Taki.Main.System.RubiksCube;
 using Taki.Utility;
@@ -21,7 +21,8 @@ namespace Taki.Main.System
             _buttonEntrypoint.DisposeHandlers();
             _cubeInteractionHandler.UnregisterEvents();
 
-            _sceneReloader.ReloadScene(
+            _sceneReloader
+                .ReloadScene(
                 destroyCancellationToken)
                 .SuppressCancellationThrow()
                 .Forget();
