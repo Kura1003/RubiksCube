@@ -20,11 +20,32 @@ namespace Taki.Main.Data.RubiksCube
 
         private readonly Dictionary<int, RotationBuffers> _rotationBuffersMap = new();
 
-        private struct RotationBuffers
+        private readonly struct RotationBuffers
         {
-            public RotationLineInfo[] RotationLineInfoBuffer;
-            public Face RotationFaceBuffer;
-            public RotationLayerInfo RotationLayerInfoBuffer;
+            internal RotationLineInfo[] RotationLineInfoBuffer { get; }
+            internal Face RotationFaceBuffer { get; }
+            internal RotationLayerInfo RotationLayerInfoBuffer { get; }
+
+            internal static RotationBuffers Create(
+                RotationLineInfo[] rotationLineInfoBuffer,
+                Face rotationFaceBuffer,
+                RotationLayerInfo rotationLayerInfoBuffer)
+            {
+                return new RotationBuffers(
+                    rotationLineInfoBuffer,
+                    rotationFaceBuffer,
+                    rotationLayerInfoBuffer);
+            }
+
+            private RotationBuffers(
+                RotationLineInfo[] rotationLineInfoBuffer,
+                Face rotationFaceBuffer,
+                RotationLayerInfo rotationLayerInfoBuffer)
+            {
+                RotationLineInfoBuffer = rotationLineInfoBuffer;
+                RotationFaceBuffer = rotationFaceBuffer;
+                RotationLayerInfoBuffer = rotationLayerInfoBuffer;
+            }
         }
 
         internal CubeController(
@@ -45,7 +66,7 @@ namespace Taki.Main.Data.RubiksCube
 
             for (int i = 0; i < _cachedSize; i++)
             {
-                _rotationBuffersMap[i] = new RotationBuffers();
+                _rotationBuffersMap[i] = RotationBuffers.Create(null, default, default);
             }
         }
 
@@ -65,25 +86,29 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfOutOfRange(layerIndex, 0, _cachedSize - 1);
 
-            var buffers = _rotationBuffersMap[layerIndex];
-            buffers.RotationLineInfoBuffer = face.GetRotationLineInfos(layerIndex, _cachedSize);
-            buffers.RotationLayerInfoBuffer = new RotationLayerInfo(layerIndex, _cachedSize);
+            var rotationLineInfoBuffer = face.GetRotationLineInfos(layerIndex, _cachedSize);
+            var rotationLayerInfoBuffer = new RotationLayerInfo(layerIndex, _cachedSize);
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer)
+            Face rotationFaceBuffer;
+            if (rotationLayerInfoBuffer.IsMiddleLayer)
             {
-                buffers.RotationFaceBuffer = default;
+                rotationFaceBuffer = default;
             }
             else
             {
-                buffers.RotationFaceBuffer = face.GetRotationFace(buffers.RotationLayerInfoBuffer);
+                rotationFaceBuffer = face.GetRotationFace(rotationLayerInfoBuffer);
             }
 
-            _rotationBuffersMap[layerIndex] = buffers;
+            _rotationBuffersMap[layerIndex] = RotationBuffers.Create(
+                rotationLineInfoBuffer,
+                rotationFaceBuffer,
+                rotationLayerInfoBuffer
+            );
         }
 
         public void ClearRotationBuffers(int layerIndex)
         {
-            _rotationBuffersMap.Remove(layerIndex);
+            _rotationBuffersMap[layerIndex] = RotationBuffers.Create(null, default, default);
         }
 
         private PieceInfo[] GetLinePieces(RotationLineInfo lineInfo)
@@ -183,7 +208,9 @@ namespace Taki.Main.Data.RubiksCube
                 tempSide);
         }
 
-        private bool GetCorrectRotationDirectionForSurface(bool initialIsClockwise, RotationBuffers buffers)
+        private bool GetCorrectRotationDirectionForSurface(
+            bool initialIsClockwise, 
+            RotationBuffers buffers)
         {
             var facesThatRequireInversion =
                 Face.Top |
@@ -191,9 +218,9 @@ namespace Taki.Main.Data.RubiksCube
                 Face.Back;
 
             return initialIsClockwise ^
-                   (buffers.RotationFaceBuffer
-                       .IsContainedIn(facesThatRequireInversion)
-                       == buffers.RotationLayerInfoBuffer.IsOppositeLayer);
+                    (buffers.RotationFaceBuffer
+                        .IsContainedIn(facesThatRequireInversion)
+                        == buffers.RotationLayerInfoBuffer.IsOppositeLayer);
         }
 
         public void RotateFaceSurface(int layerIndex, bool isClockwise)
