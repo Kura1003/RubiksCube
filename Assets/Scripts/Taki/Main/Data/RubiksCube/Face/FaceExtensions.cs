@@ -78,7 +78,7 @@ namespace Taki.Main.Data.RubiksCube
             return other.HasFlag(self);
         }
 
-        internal static Face Opposite(this Face self)
+        private static Face Opposite(this Face self)
         {
             Thrower.IfTrue(
                 !IsSingleFlag(self),
