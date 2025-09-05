@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Taki.Main.Data.RubiksCube;
 using Taki.Utility;
 
@@ -45,9 +45,6 @@ namespace Taki.Main.System.RubiksCube
             await UniTask.Yield();
         }
 
-        public void Dispose()
-        {
-
-        }
+        public void Dispose() { }
     }
 }

@@ -63,9 +63,7 @@ namespace Taki.Main.View
                 .ForEach(entry => _originalColors[entry.Graphic] = entry.Graphic.color);
         }
 
-        protected override void OnClicked()
-        {
-        }
+        protected override void OnClicked() { }
 
         protected override void OnPointerEntered()
         {

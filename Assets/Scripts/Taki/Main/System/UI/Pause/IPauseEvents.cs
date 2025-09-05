@@ -1,4 +1,4 @@
-using R3;
+﻿using R3;
 using System;
 
 namespace Taki.Main.System
@@ -7,9 +7,7 @@ namespace Taki.Main.System
     {
         Subject<Unit> OnPauseRequested { get; }
         Subject<Unit> OnResumeRequested { get; }
-
         bool IsPaused { get; }
-
         void Pause();
         void Resume();
     }

@@ -26,9 +26,7 @@ namespace Taki.Main.View
             _currentTween?.Kill();
         }
 
-        protected override void OnClicked()
-        {
-        }
+        protected override void OnClicked() { }
 
         protected override void OnPointerEntered()
         {

@@ -22,15 +22,8 @@ namespace Taki.Audio
             }
         }
 
-        protected override void OnPointerEntered()
-        {
-
-        }
-
-        protected override void OnPointerExited()
-        {
-
-        }
+        protected override void OnPointerEntered() { }
+        protected override void OnPointerExited() { }
 
         private void OnMuted()
         {

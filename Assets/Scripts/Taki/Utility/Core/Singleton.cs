@@ -39,6 +39,7 @@ namespace Taki.Utility.Core
             {
                 instance = this as T;
             }
+
             else if (instance != this)
             {
                 Destroy(gameObject);

@@ -1,4 +1,4 @@
-using Taki.Utility;
+﻿using Taki.Utility;
 using VContainer;
 
 namespace Taki.Main.System
@@ -12,12 +12,7 @@ namespace Taki.Main.System
             _pauseEvents.Pause();
         }
 
-        protected override void OnPointerEntered()
-        {
-        }
-
-        protected override void OnPointerExited()
-        {
-        }
+        protected override void OnPointerEntered() { }
+        protected override void OnPointerExited() { }
     }
 }
