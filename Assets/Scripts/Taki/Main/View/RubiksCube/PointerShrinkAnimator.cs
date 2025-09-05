@@ -35,7 +35,6 @@ namespace Taki.Main.View.RubiksCube
         protected override void Awake()
         {
             base.Awake();
-
             _originalScale = transform.localScale;
             _changeMonitor = ChangeMonitor.Instance;
         }
@@ -61,7 +60,6 @@ namespace Taki.Main.View.RubiksCube
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             _currentTween?.Kill();
         }
 

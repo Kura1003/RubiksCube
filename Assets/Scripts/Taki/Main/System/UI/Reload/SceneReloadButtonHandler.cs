@@ -28,14 +28,8 @@ namespace Taki.Main.System
                 .Forget();
         }
 
-        protected override void OnPointerEntered()
-        {
+        protected override void OnPointerEntered() { }
 
-        }
-
-        protected override void OnPointerExited()
-        {
-
-        }
+        protected override void OnPointerExited() { }
     }
 }
