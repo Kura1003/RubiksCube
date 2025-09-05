@@ -37,7 +37,6 @@ namespace Taki.Audio
         protected override void Awake()
         {
             base.Awake();
-
             InitializeAudioClips();
         }
 
