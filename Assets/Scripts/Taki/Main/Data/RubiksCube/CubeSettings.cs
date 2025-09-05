@@ -23,6 +23,7 @@ namespace Taki.Main.Data.RubiksCube
 
         [SerializeField]
         private float _pieceSpacing = 0.01f;
+
         public float PieceSpacing => _pieceSpacing;
 
         public readonly int RotationAngle = 90;
@@ -38,11 +39,13 @@ namespace Taki.Main.Data.RubiksCube
 
         [SerializeField]
         private Ease _easingType = Ease.InOutSine;
+
         public Ease EasingType => _easingType;
 
         [Header("Move Limit")]
         [SerializeField]
         private int _rotationLimit = 50;
+
         public int RotationLimit => _rotationLimit;
 
         public bool IsLimitExceeded(int rotationCount)
