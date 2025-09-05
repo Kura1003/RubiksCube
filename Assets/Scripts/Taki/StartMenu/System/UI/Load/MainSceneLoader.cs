@@ -24,7 +24,7 @@ namespace Taki.StartMenu.System
 
         public void PreloadMainScene()
         {
-            if (_loadAsync == null)
+            if (_loadAsync is null)
             {
                 _loadAsync = SceneManager.LoadSceneAsync(_sceneName);
                 _loadAsync.allowSceneActivation = false;
@@ -33,7 +33,7 @@ namespace Taki.StartMenu.System
 
         public async UniTask LoadMainScene(CancellationToken token)
         {
-            if (_loadAsync == null) return;
+            if (_loadAsync is null) return;
 
             _screenFader.SetFadeDuration(0.5f);
             _screenFader.SetFadeInTargetAlpha(1f);
