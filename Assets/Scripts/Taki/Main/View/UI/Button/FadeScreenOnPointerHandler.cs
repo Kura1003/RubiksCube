@@ -11,10 +11,8 @@ namespace Taki.Main.View
         [SerializeField] private float _fadeInTargetAlpha = 1.0f;
 
         [Inject] private IScreenFader _screenFader;
-        protected override void OnClicked()
-        {
 
-        }
+        protected override void OnClicked() { }
 
         protected override void OnPointerEntered()
         {

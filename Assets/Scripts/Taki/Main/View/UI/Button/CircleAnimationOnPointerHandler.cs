@@ -15,9 +15,7 @@ namespace Taki.Main.View
             _circleAnimator.Initialize();
         }
 
-        protected override void OnClicked()
-        {
-        }
+        protected override void OnClicked() { }
 
         protected override void OnPointerEntered()
         {

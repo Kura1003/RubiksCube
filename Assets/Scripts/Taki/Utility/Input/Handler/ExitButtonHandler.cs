@@ -1,4 +1,4 @@
-using Taki.Utility.Core;
+﻿using Taki.Utility.Core;
 
 namespace Taki.Utility
 {
@@ -9,12 +9,7 @@ namespace Taki.Utility
             App.Exit();
         }
 
-        protected override void OnPointerEntered()
-        {
-        }
-
-        protected override void OnPointerExited()
-        {
-        }
+        protected override void OnPointerEntered() { }
+        protected override void OnPointerExited() { }
     }
 }

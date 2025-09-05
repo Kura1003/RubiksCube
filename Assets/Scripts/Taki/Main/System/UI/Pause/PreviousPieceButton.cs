@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Taki.Main.View;
 using Taki.Utility;
 using UnityEngine;
@@ -17,12 +17,8 @@ namespace Taki.Main.System
                 .Forget();
         }
 
-        protected override void OnPointerEntered()
-        {
-        }
+        protected override void OnPointerEntered() { }
 
-        protected override void OnPointerExited()
-        {
-        }
+        protected override void OnPointerExited() { }
     }
 }

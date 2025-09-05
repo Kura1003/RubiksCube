@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 
 namespace Taki.Main.System.RubiksCube
 {
@@ -16,9 +16,6 @@ namespace Taki.Main.System.RubiksCube
             return _cubeRotator.RestoreToInitialState();
         }
 
-        public void Dispose()
-        {
-
-        }
+        public void Dispose() { }
     }
 }

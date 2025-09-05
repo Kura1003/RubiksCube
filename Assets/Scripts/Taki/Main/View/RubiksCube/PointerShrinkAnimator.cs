@@ -63,10 +63,7 @@ namespace Taki.Main.View.RubiksCube
             _currentTween?.Kill();
         }
 
-        protected override void OnClicked()
-        {
-
-        }
+        protected override void OnClicked() { }
 
         protected override void OnPointerEntered()
         {

@@ -55,6 +55,7 @@ namespace Taki.Utility
             {
                 handlers.ForEach(handler => handler.SetInputLock(isLocked));
             }
+
             else
             {
                 Debug.LogWarning(
