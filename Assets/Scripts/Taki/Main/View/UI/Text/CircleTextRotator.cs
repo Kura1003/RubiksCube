@@ -161,6 +161,7 @@ namespace Taki.Main.View
                 _rotatorObjects.RemoveAt(_rotatorObjects.Count - 1);
                 _rotatorObjects.Insert(0, last);
             }
+
             else
             {
                 var first = _rotatorObjects[0];
@@ -196,6 +197,7 @@ namespace Taki.Main.View
                 _rotatorObjects.RemoveAt(_rotatorObjects.Count - 1);
                 _rotatorObjects.Insert(0, last);
             }
+
             else
             {
                 var first = _rotatorObjects[0];
