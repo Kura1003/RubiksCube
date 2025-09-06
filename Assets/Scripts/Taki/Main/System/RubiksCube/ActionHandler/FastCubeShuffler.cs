@@ -25,6 +25,7 @@ namespace Taki.Main.System.RubiksCube
         public async UniTask Execute()
         {
             var faces = FaceUtility.GetFaces(Face.Left | Face.Top | Face.Front);
+
             for (int i = 0; i < _shuffleCount; i++)
             {
                 faces.Shuffle();
