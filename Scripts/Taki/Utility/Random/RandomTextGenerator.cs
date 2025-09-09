@@ -21,7 +21,6 @@ namespace Taki.Utility
 
         internal static string Generate(int length, CharType charType)
         {
-            Thrower.IfOutOfRange(length, 1, int.MaxValue);
             Thrower.IfTrue(charType == 0, $"CharTypeを指定してください。");
 
             var charSet = new List<char>();
@@ -54,7 +53,6 @@ namespace Taki.Utility
 
         internal static string GenerateUnique(int length, CharType charType)
         {
-            Thrower.IfOutOfRange(length, 1, int.MaxValue);
             Thrower.IfTrue(charType == 0, $"CharTypeを指定してください。");
 
             var charSet = new List<char>();
