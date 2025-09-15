@@ -138,8 +138,7 @@ namespace Taki.Main.Data.RubiksCube
             return initialIsClockwise ^ face.IsContainedIn(facesThatInvertDirection);
         }
 
-        private bool ShouldReverseSide(int sideIndex, bool isClockwise)
-            => (isClockwise ? 0 : 1) == (sideIndex & 1);
+        private bool ShouldReverseSide(int sideIndex, bool isClockwise) => isClockwise ^ sideIndex.IsOdd();
 
         public void RotateSideLines(
             Face face,
