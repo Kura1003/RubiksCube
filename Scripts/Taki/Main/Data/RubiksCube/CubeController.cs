@@ -121,21 +121,17 @@ namespace Taki.Main.Data.RubiksCube
             GetFaceManagers(lineInfo.Face).Swapper.ReplacePieces(lineInfo, otherPieces);
         }
 
-        private void SwapPieceTransforms(RotationLineInfo lineInfo, Transform[] otherTransforms)
-        {
-            GetFaceManagers(lineInfo.Face).Swapper.SwapPositions(lineInfo, otherTransforms);
-        }
-
         private bool GetCorrectRotationDirectionForSide(
             Face face,
             bool initialIsClockwise)
         {
-            var facesThatInvertDirection =
-                Face.Right |
-                Face.Top |
-                Face.Back;
+            /*
+            Face.Right |
+            Face.Top |
+            Face.Back;
+            */
 
-            return initialIsClockwise ^ face.IsContainedIn(facesThatInvertDirection);
+            return initialIsClockwise ^ face.IsContainedIn((Face)0x1A);
         }
 
         private bool ShouldReverseSide(int sideIndex, bool isClockwise) => isClockwise ^ sideIndex.IsOdd();
@@ -143,8 +139,7 @@ namespace Taki.Main.Data.RubiksCube
         public void RotateSideLines(
             Face face,
             int layerIndex,
-            bool isClockwise,
-            bool shouldSwapTransforms)
+            bool isClockwise)
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
@@ -162,36 +157,7 @@ namespace Taki.Main.Data.RubiksCube
                 }
             }
 
-            Transform[][] pieceTransforms = null;
-            if (shouldSwapTransforms)
-            {
-                pieceTransforms = new Transform[SIDE_LINE_COUNT][];
-                for (int i = 0; i < SIDE_LINE_COUNT; i++)
-                {
-                    pieceTransforms[i] = new Transform[sidePieces[i].Length];
-                    for (int j = 0; j < sidePieces[i].Length; j++)
-                    {
-                        pieceTransforms[i][j] = sidePieces[i][j].Transform;
-                    }
-                }
-            }
-
             int[] sideRotationOrder = isClockwise ? new[] { 0, 1, 2, 3 } : new[] { 0, 3, 2, 1 };
-
-            if (shouldSwapTransforms)
-            {
-                SwapPieceTransforms(
-                    buffers.RotationLineInfoBuffer[sideRotationOrder[0]],
-                    pieceTransforms[sideRotationOrder[1]]);
-
-                SwapPieceTransforms(
-                    buffers.RotationLineInfoBuffer[sideRotationOrder[^1]],
-                    pieceTransforms[sideRotationOrder[0]]);
-
-                SwapPieceTransforms(
-                    buffers.RotationLineInfoBuffer[sideRotationOrder[2]],
-                    pieceTransforms[sideRotationOrder[^1]]);
-            }
 
             var tempSide = sidePieces[sideRotationOrder[0]];
 
@@ -208,18 +174,21 @@ namespace Taki.Main.Data.RubiksCube
         }
 
         private bool GetCorrectRotationDirectionForSurface(
-            bool initialIsClockwise, 
+            bool initialIsClockwise,
             RotationBuffers buffers)
         {
-            var facesThatRequireInversion =
-                Face.Top |
-                Face.Left |
-                Face.Back;
+            /*
+            Face.Top |
+            Face.Left |
+            Face.Back;
+            */
 
-            return initialIsClockwise ^
-                    (buffers.RotationFaceBuffer
-                        .IsContainedIn(facesThatRequireInversion)
-                        == buffers.RotationLayerInfoBuffer.IsOppositeLayer);
+            if (buffers.RotationLayerInfoBuffer.IsOppositeLayer)
+            {
+                return initialIsClockwise ^ buffers.RotationFaceBuffer.IsContainedIn((Face)0x16);
+            }
+
+            return initialIsClockwise ^ !buffers.RotationFaceBuffer.IsContainedIn((Face)0x16);
         }
 
         public void RotateFaceSurface(int layerIndex, bool isClockwise)

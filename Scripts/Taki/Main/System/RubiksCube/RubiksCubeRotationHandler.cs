@@ -145,7 +145,7 @@ namespace Taki.Main.System.RubiksCube
 
             _transformManipulator.ParentBufferedPiecesTo(layerIndex, parentTransform);
 
-            _cubeRotationLogic.RotateSideLines(face, layerIndex, isClockwise, false);
+            _cubeRotationLogic.RotateSideLines(face, layerIndex, isClockwise);
             _cubeRotationLogic.RotateFaceSurface(layerIndex, isClockwise);
 
             _cubeStateSaver.SaveBufferedPiecePositions(layerIndex);
@@ -195,7 +195,7 @@ namespace Taki.Main.System.RubiksCube
             _transformManipulator.RotateFaceSurfacePieces(layerIndex, signedAngle, localAxis);
             _transformManipulator.RotateSideLinePieces(layerIndex, signedAngle, worldAxis);
 
-            _cubeRotationLogic.RotateSideLines(face, layerIndex, isClockwise, true);
+            _cubeRotationLogic.RotateSideLines(face, layerIndex, isClockwise);
             _cubeRotationLogic.RotateFaceSurface(layerIndex, isClockwise);
 
             _cubeStateSaver.SaveBufferedPieceRotations(layerIndex);
