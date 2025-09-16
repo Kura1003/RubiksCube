@@ -22,29 +22,29 @@ namespace Taki.Main.Data.RubiksCube
 
         private readonly struct RotationBuffers
         {
-            internal RotationLineInfo[] RotationLineInfoBuffer { get; }
-            internal Face RotationFaceBuffer { get; }
-            internal RotationLayerInfo RotationLayerInfoBuffer { get; }
+            internal RotationLineInfo[] RotationLineInfo { get; }
+            internal Face RotationFace { get; }
+            internal RotationLayerInfo RotationLayerInfo { get; }
 
             internal static RotationBuffers Create(
-                RotationLineInfo[] rotationLineInfoBuffer,
-                Face rotationFaceBuffer,
-                RotationLayerInfo rotationLayerInfoBuffer)
+                RotationLineInfo[] rotationLineInfo,
+                Face rotationFace,
+                RotationLayerInfo rotationLayerInfo)
             {
                 return new RotationBuffers(
-                    rotationLineInfoBuffer,
-                    rotationFaceBuffer,
-                    rotationLayerInfoBuffer);
+                    rotationLineInfo,
+                    rotationFace,
+                    rotationLayerInfo);
             }
 
             private RotationBuffers(
-                RotationLineInfo[] rotationLineInfoBuffer,
-                Face rotationFaceBuffer,
-                RotationLayerInfo rotationLayerInfoBuffer)
+                RotationLineInfo[] rotationLineInfo,
+                Face rotationFace,
+                RotationLayerInfo rotationLayerInfo)
             {
-                RotationLineInfoBuffer = rotationLineInfoBuffer;
-                RotationFaceBuffer = rotationFaceBuffer;
-                RotationLayerInfoBuffer = rotationLayerInfoBuffer;
+                RotationLineInfo = rotationLineInfo;
+                RotationFace = rotationFace;
+                RotationLayerInfo = rotationLayerInfo;
             }
         }
 
@@ -86,23 +86,23 @@ namespace Taki.Main.Data.RubiksCube
         {
             Thrower.IfOutOfRange(layerIndex, 0, _cachedSize - 1);
 
-            var rotationLineInfoBuffer = face.GetRotationLineInfos(layerIndex, _cachedSize);
-            var rotationLayerInfoBuffer = new RotationLayerInfo(layerIndex, _cachedSize);
+            var rotationLineInfo = face.GetRotationLineInfos(layerIndex, _cachedSize);
+            var rotationLayerInfo = new RotationLayerInfo(layerIndex, _cachedSize);
 
-            Face rotationFaceBuffer;
-            if (rotationLayerInfoBuffer.IsMiddleLayer)
+            Face rotationFace;
+            if (rotationLayerInfo.IsMiddleLayer)
             {
-                rotationFaceBuffer = default;
+                rotationFace = default;
             }
             else
             {
-                rotationFaceBuffer = face.GetRotationFace(rotationLayerInfoBuffer);
+                rotationFace = face.GetRotationFace(rotationLayerInfo);
             }
 
             _rotationBuffersMap[layerIndex] = RotationBuffers.Create(
-                rotationLineInfoBuffer,
-                rotationFaceBuffer,
-                rotationLayerInfoBuffer
+                rotationLineInfo,
+                rotationFace,
+                rotationLayerInfo
             );
         }
 
@@ -149,7 +149,7 @@ namespace Taki.Main.Data.RubiksCube
 
             for (int i = 0; i < SIDE_LINE_COUNT; i++)
             {
-                sidePieces[i] = GetLinePieces(buffers.RotationLineInfoBuffer[i]);
+                sidePieces[i] = GetLinePieces(buffers.RotationLineInfo[i]);
 
                 if (ShouldReverseSide(i, isClockwise))
                 {
@@ -164,12 +164,12 @@ namespace Taki.Main.Data.RubiksCube
             for (int i = 0; i < sideRotationOrder.Length - 1; i++)
             {
                 SetLinePieces(
-                    buffers.RotationLineInfoBuffer[sideRotationOrder[i]],
+                    buffers.RotationLineInfo[sideRotationOrder[i]],
                     sidePieces[sideRotationOrder[i + 1]]);
             }
 
             SetLinePieces(
-                buffers.RotationLineInfoBuffer[sideRotationOrder[^1]],
+                buffers.RotationLineInfo[sideRotationOrder[^1]],
                 tempSide);
         }
 
@@ -183,36 +183,36 @@ namespace Taki.Main.Data.RubiksCube
             Face.Back;
             */
 
-            if (buffers.RotationLayerInfoBuffer.IsOppositeLayer)
+            if (buffers.RotationLayerInfo.IsOppositeLayer)
             {
-                return initialIsClockwise ^ buffers.RotationFaceBuffer.IsContainedIn((Face)0x16);
+                return initialIsClockwise ^ buffers.RotationFace.IsContainedIn((Face)0x16);
             }
 
-            return initialIsClockwise ^ !buffers.RotationFaceBuffer.IsContainedIn((Face)0x16);
+            return initialIsClockwise ^ !buffers.RotationFace.IsContainedIn((Face)0x16);
         }
 
         public void RotateFaceSurface(int layerIndex, bool isClockwise)
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
 
             isClockwise = GetCorrectRotationDirectionForSurface(isClockwise, buffers);
 
-            GetFaceManagers(buffers.RotationFaceBuffer).Swapper.Rotate(isClockwise);
+            GetFaceManagers(buffers.RotationFace).Swapper.Rotate(isClockwise);
         }
 
         public void ParentBufferedPiecesTo(int layerIndex, Transform parent)
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).Manipulator.ParentLine(lineInfo, parent);
             }
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
-            GetFaceManagers(buffers.RotationFaceBuffer).Manipulator.UnparentAll(parent);
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+            GetFaceManagers(buffers.RotationFace).Manipulator.UnparentAll(parent);
         }
 
         public void RotateFaceSurfacePieces(
@@ -222,14 +222,14 @@ namespace Taki.Main.Data.RubiksCube
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
 
-            if (buffers.RotationLayerInfoBuffer.IsOppositeLayer)
+            if (buffers.RotationLayerInfo.IsOppositeLayer)
             {
                 angle = angle.Negate();
             }
 
-            GetFaceManagers(buffers.RotationFaceBuffer).Manipulator.RotateAll(angle, localAxis);
+            GetFaceManagers(buffers.RotationFace).Manipulator.RotateAll(angle, localAxis);
         }
 
         public void RotateSideLinePieces(
@@ -239,7 +239,7 @@ namespace Taki.Main.Data.RubiksCube
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).Manipulator.RotateLine(lineInfo, angle, worldAxis);
             }
@@ -265,26 +265,26 @@ namespace Taki.Main.Data.RubiksCube
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).CoordinatesManager.SavePositions(lineInfo);
             }
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
-            GetFaceManagers(buffers.RotationFaceBuffer).CoordinatesManager.SaveAllPositions();
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+            GetFaceManagers(buffers.RotationFace).CoordinatesManager.SaveAllPositions();
         }
 
         public void SaveBufferedPieceRotations(int layerIndex)
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).CoordinatesManager.SaveRotations(lineInfo);
             }
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
-            GetFaceManagers(buffers.RotationFaceBuffer).CoordinatesManager.SaveAllRotations();
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+            GetFaceManagers(buffers.RotationFace).CoordinatesManager.SaveAllRotations();
         }
 
         public void RestoreAllPiecePositions()
@@ -307,26 +307,26 @@ namespace Taki.Main.Data.RubiksCube
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).CoordinatesManager.RestorePositions(lineInfo);
             }
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
-            GetFaceManagers(buffers.RotationFaceBuffer).CoordinatesManager.RestoreAllPositions();
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+            GetFaceManagers(buffers.RotationFace).CoordinatesManager.RestoreAllPositions();
         }
 
         public void RestoreBufferedPieceRotations(int layerIndex)
         {
             var buffers = _rotationBuffersMap[layerIndex];
 
-            foreach (var lineInfo in buffers.RotationLineInfoBuffer)
+            foreach (var lineInfo in buffers.RotationLineInfo)
             {
                 GetFaceManagers(lineInfo.Face).CoordinatesManager.RestoreRotations(lineInfo);
             }
 
-            if (buffers.RotationLayerInfoBuffer.IsMiddleLayer) return;
-            GetFaceManagers(buffers.RotationFaceBuffer).CoordinatesManager.RestoreAllRotations();
+            if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+            GetFaceManagers(buffers.RotationFace).CoordinatesManager.RestoreAllRotations();
         }
     }
 }
