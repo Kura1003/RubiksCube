@@ -80,26 +80,20 @@ namespace Taki.Main.System
 
         private async UniTask SetupSystem()
         {
-            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
+            await UniTask.Yield(_destroyCancellationToken);
 
             LucidAudio.BGMVolume = 0f;
             LucidAudio.SEVolume = 0f;
             _audioManager = AudioManager.Instance;
 
-            await PreloadCube();
+            await UniTask.Yield(_destroyCancellationToken);
 
             _sceneReloader.PreloadScene();
             _buttonEntrypoint.CollectHandlers();
             _lockEntrypoint.CollectUserInputLocks();
             _lockEntrypoint.SetAllUserInputLocks(true);
 
-            await UniTask.Yield(cancellationToken: _destroyCancellationToken);
-        }
-
-        private async UniTask PreloadCube()
-        {
-            await _cubeInteractionHandler.ExecuteFastShuffle();
-            await _cubeInteractionHandler.ExecuteRebuild();
+            await UniTask.Yield(_destroyCancellationToken);
         }
 
         private void OnFadeOutComplete()

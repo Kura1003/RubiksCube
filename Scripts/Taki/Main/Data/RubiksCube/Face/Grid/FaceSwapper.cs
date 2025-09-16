@@ -18,15 +18,6 @@ namespace Taki.Main.Data.RubiksCube
             _cachedSize = cubeSize;
         }
 
-        internal void SwapPositions(RotationLineInfo lineInfo, Transform[] otherTransforms)
-        {
-            for (int i = 0; i < _cachedSize; i++)
-            {
-                Vector2Int index = lineInfo.GetIndex(i);
-                _piecesInfo[index.x, index.y].SwapLocalPosition(otherTransforms[i]);
-            }
-        }
-
         internal void ReplacePieces(RotationLineInfo lineInfo, PieceInfo[] otherPieces)
         {
             for (int i = 0; i < _cachedSize; i++)

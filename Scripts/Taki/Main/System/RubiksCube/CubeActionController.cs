@@ -151,16 +151,6 @@ namespace Taki.Main.System.RubiksCube
             return UniTask.CompletedTask;
         }
 
-        public UniTask ExecuteFastShuffle()
-        {
-            if (_actionHandlers.TryGetValue(CubeActionTag.FastShuffle, out var handler))
-            {
-                return ExecuteActionTask(handler);
-            }
-
-            return UniTask.CompletedTask;
-        }
-
         private async UniTask ExecuteActionTask(ICubeActionHandler handler)
         {
             if (!(handler is CubeRebuilder) && _isTaskRunning)

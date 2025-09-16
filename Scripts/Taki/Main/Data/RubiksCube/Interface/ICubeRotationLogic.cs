@@ -1,4 +1,4 @@
-
+﻿
 namespace Taki.Main.Data.RubiksCube
 {
     internal interface ICubeRotationLogic
@@ -10,8 +10,7 @@ namespace Taki.Main.Data.RubiksCube
         void RotateSideLines(
             Face face,
             int layerIndex,
-            bool isClockwise,
-            bool shouldSwapTransforms);
+            bool isClockwise);
 
         void RotateFaceSurface(int layerIndex, bool isClockwise);
     }
