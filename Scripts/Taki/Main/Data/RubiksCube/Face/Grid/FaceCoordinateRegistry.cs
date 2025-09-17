@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Taki.Main.Data.RubiksCube
 {
-    internal class FaceCoordinatesManager
+    internal class FaceCoordinateRegistry
     {
         private readonly PieceInfo[,] PiecesInfo;
         private readonly int _cachedSize;
@@ -11,7 +11,7 @@ namespace Taki.Main.Data.RubiksCube
         private readonly Vector3[,] _localPositions;
         private readonly Quaternion[,] _localRotations;
 
-        internal FaceCoordinatesManager(
+        internal FaceCoordinateRegistry(
             PieceInfo[,] piecesInfo,
             int cubeSize)
         {
