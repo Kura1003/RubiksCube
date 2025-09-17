@@ -2,7 +2,7 @@
 using System.Threading;
 using UnityEngine;
 
-namespace Taki.Utility.UI
+namespace Taki.Main.System
 {
     [RequireComponent(typeof(Canvas), typeof(RectTransform))]
     public class CursorEffectSpawner : MonoBehaviour
