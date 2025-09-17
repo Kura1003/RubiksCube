@@ -1,62 +1,76 @@
+﻿using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 
-namespace Taki.Main.System
+namespace Taki.Utility.UI
 {
+    [RequireComponent(typeof(Canvas), typeof(RectTransform))]
     public class CursorEffectSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _cursorEffectPrefab;
-        [SerializeField] private Canvas _targetCanvas;
         [SerializeField] private float _spawnInterval = 0.1f;
 
-        private RectTransform _canvasRectTransform;
-        private float _timeSinceLastSpawn;
+        private Canvas _canvas;
+        private RectTransform _rectTransform;
+        private bool _isSpawning;
 
         private void Awake()
         {
-            _canvasRectTransform = _targetCanvas.GetComponent<RectTransform>();
+            _canvas = GetComponent<Canvas>();
+            _rectTransform = GetComponent<RectTransform>();
         }
 
-        private void LateUpdate()
+        private void Update()
         {
-            if (_targetCanvas.renderMode == RenderMode.ScreenSpaceCamera) return;
-
-            HandleCursorEffectSpawn();
-        }
-
-        private void HandleCursorEffectSpawn()
-        {
-            if (!Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                _timeSinceLastSpawn = _spawnInterval;
-                return;
+                _isSpawning = true;
+                SpawnEffectAsync(
+                        Input.mousePosition,
+                        destroyCancellationToken)
+                    .SuppressCancellationThrow()
+                    .Forget();
             }
 
-            _timeSinceLastSpawn += Time.unscaledDeltaTime;
-            if (_timeSinceLastSpawn >= _spawnInterval)
+            if (Input.GetMouseButtonUp(0))
             {
-                SpawnEffect();
+                _isSpawning = false;
             }
         }
 
-        private void SpawnEffect()
+        private async UniTask SpawnEffectAsync(
+            Vector2 initialPosition,
+            CancellationToken token)
         {
-            _timeSinceLastSpawn = 0f;
+            while (_isSpawning && !token.IsCancellationRequested)
+            {
+                Vector2 localPoint;
+                Camera cameraToUse =
+                    _canvas.renderMode == RenderMode.ScreenSpaceOverlay ?
+                    null : _canvas.worldCamera;
 
-            Vector2 mousePosition = Input.mousePosition;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    _rectTransform,
+                    initialPosition,
+                    cameraToUse,
+                    out localPoint);
 
-            Camera cameraToUse =
-                _targetCanvas.renderMode == RenderMode.ScreenSpaceOverlay ?
-                null : _targetCanvas.worldCamera;
+                SpawnEffect(localPoint);
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                _canvasRectTransform,
-                mousePosition,
-                cameraToUse,
-                out Vector2 localPoint);
+                await UniTask.WaitForSeconds(
+                    _spawnInterval,
+                    ignoreTimeScale: true,
+                    cancellationToken: token);
 
+                initialPosition = Input.mousePosition;
+            }
+        }
+
+        private void SpawnEffect(Vector2 localPoint)
+        {
             GameObject instance = Instantiate(
                 _cursorEffectPrefab,
-                _canvasRectTransform);
+                _rectTransform);
 
             RectTransform instanceRect = instance.GetComponent<RectTransform>();
             instanceRect.anchoredPosition = localPoint;
