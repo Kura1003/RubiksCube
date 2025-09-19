@@ -12,7 +12,7 @@ namespace Taki.Main.System.RubiksCube
         private readonly ICubeStateRestorer _cubeStateRestorer;
 
         public FastCubeShuffler(
-            int shuffleCount, 
+            int shuffleCount,
             IRubiksCubeRotator cubeRotator,
             ICubeStateRestorer cubeStateRestorer)
         {
@@ -24,7 +24,8 @@ namespace Taki.Main.System.RubiksCube
 
         public async UniTask Execute()
         {
-            var faces = FaceUtility.GetFaces(Face.Left | Face.Top | Face.Front);
+            const Face LTF = (Face)0x07;
+            var faces = FaceUtility.GetFaces(LTF);
 
             for (int i = 0; i < _shuffleCount; i++)
             {
@@ -35,8 +36,8 @@ namespace Taki.Main.System.RubiksCube
 
                 _cubeRotator
                     .ExecuteRotationWithoutAnimation(
-                    face, 
-                    layerIndex, 
+                    face,
+                    layerIndex,
                     isClockwise);
             }
 
