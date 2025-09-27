@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Taki.Utility;
 using Taki.Utility.Core;
@@ -81,23 +81,15 @@ namespace Taki.Main.Data.RubiksCube
         }
 
         public void SetRotationBuffers(
-        Face face,
-        int layerIndex)
+            Face face,
+            int layerIndex)
         {
             Thrower.IfOutOfRange(layerIndex, 0, _cachedSize - 1);
 
             var rotationLineInfo = face.GetRotationLineInfos(layerIndex, _cachedSize);
             var rotationLayerInfo = new RotationLayerInfo(layerIndex, _cachedSize);
 
-            Face rotationFace;
-            if (rotationLayerInfo.IsMiddleLayer)
-            {
-                rotationFace = default;
-            }
-            else
-            {
-                rotationFace = face.GetRotationFace(rotationLayerInfo);
-            }
+            Face rotationFace = rotationLayerInfo.IsMiddleLayer ? default : face.GetRotationFace(rotationLayerInfo);
 
             _rotationBuffersMap[layerIndex] = RotationBuffers.Create(
                 rotationLineInfo,
@@ -203,6 +195,7 @@ namespace Taki.Main.Data.RubiksCube
             }
 
             if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+
             GetFaceManagers(buffers.RotationFace).Manipulator.UnparentAll(parent);
         }
 
@@ -262,6 +255,7 @@ namespace Taki.Main.Data.RubiksCube
             }
 
             if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+
             GetFaceManagers(buffers.RotationFace).CoordinateRegistry.SaveAllPositions();
         }
 
@@ -275,6 +269,7 @@ namespace Taki.Main.Data.RubiksCube
             }
 
             if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+
             GetFaceManagers(buffers.RotationFace).CoordinateRegistry.SaveAllRotations();
         }
 
@@ -304,6 +299,7 @@ namespace Taki.Main.Data.RubiksCube
             }
 
             if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+
             GetFaceManagers(buffers.RotationFace).CoordinateRegistry.RestoreAllPositions();
         }
 
@@ -317,6 +313,7 @@ namespace Taki.Main.Data.RubiksCube
             }
 
             if (buffers.RotationLayerInfo.IsMiddleLayer) return;
+
             GetFaceManagers(buffers.RotationFace).CoordinateRegistry.RestoreAllRotations();
         }
     }
