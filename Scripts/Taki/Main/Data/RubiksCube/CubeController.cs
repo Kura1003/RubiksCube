@@ -91,7 +91,8 @@ namespace Taki.Main.Data.RubiksCube
 
             Face rotationFace = rotationLayerInfo.IsMiddleLayer ? default : face.GetRotationFace(rotationLayerInfo);
 
-            _rotationBuffersMap[layerIndex] = RotationBuffers.Create(
+            _rotationBuffersMap[layerIndex] = 
+                RotationBuffers.Create(
                 rotationLineInfo,
                 rotationFace,
                 rotationLayerInfo
