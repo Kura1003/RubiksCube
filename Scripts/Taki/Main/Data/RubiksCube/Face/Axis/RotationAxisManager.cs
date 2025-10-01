@@ -28,6 +28,7 @@ namespace Taki.Main.Data.RubiksCube
             _parentTransform = parentTransform;
 
             _cachedFaceNormals.Clear();
+            
             foreach (var pair in _axisInfoMap)
             {
                 var face = pair.Key;
