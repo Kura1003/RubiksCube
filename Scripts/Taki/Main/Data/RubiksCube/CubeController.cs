@@ -145,20 +145,16 @@ namespace Taki.Main.Data.RubiksCube
                 }
             }
 
-            int[] sideRotationOrder = isClockwise ? new[] { 0, 1, 2, 3 } : new[] { 0, 3, 2, 1 };
+            int[] lineCycle = isClockwise ? new[] { 0, 1, 2, 3 } : new[] { 0, 3, 2, 1 };
 
-            var tempSide = sidePieces[sideRotationOrder[0]];
+            var tempSide = sidePieces[lineCycle[0]];
 
-            for (int i = 0; i < sideRotationOrder.Length - 1; i++)
+            for (int i = 0; i < lineCycle.Length - 1; i++)
             {
-                SetLinePieces(
-                    buffers.RotationLineInfo[sideRotationOrder[i]],
-                    sidePieces[sideRotationOrder[i + 1]]);
+                SetLinePieces(buffers.RotationLineInfo[lineCycle[i]], sidePieces[lineCycle[i + 1]]);
             }
 
-            SetLinePieces(
-                buffers.RotationLineInfo[sideRotationOrder[^1]],
-                tempSide);
+            SetLinePieces(buffers.RotationLineInfo[lineCycle[^1]], tempSide);
         }
 
         private bool GetCorrectRotationDirectionForSurface(
