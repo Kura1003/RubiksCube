@@ -78,6 +78,7 @@ namespace Taki.Main.View
                     Tween newTween = entry.Graphic.DOColor(entry.HoverColor, _animationDuration)
                         .SetEase(_easeType)
                         .SetUpdate(_ignoreTimeScale);
+                        
                     _currentTweens.Add(newTween);
                 });
         }
@@ -95,6 +96,7 @@ namespace Taki.Main.View
                     Tween newTween = entry.Graphic.DOColor(_originalColors[entry.Graphic], _animationDuration)
                         .SetEase(_easeType)
                         .SetUpdate(_ignoreTimeScale);
+                        
                     _currentTweens.Add(newTween);
                 });
         }
