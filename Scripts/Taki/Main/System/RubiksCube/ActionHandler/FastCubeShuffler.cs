@@ -24,7 +24,7 @@ namespace Taki.Main.System.RubiksCube
 
         public async UniTask Execute()
         {
-            const Face LTF = (Face)0x07;
+            const Face LTF = (Face)0x15;
             var faces = FaceUtility.GetFaces(LTF);
 
             for (int i = 0; i < _shuffleCount; i++)
